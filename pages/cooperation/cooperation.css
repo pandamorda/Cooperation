@@ -1,0 +1,118 @@
+@import url("/styles/style.css");
+
+/*  Upload */
+section.upload {
+  padding: 0;
+  border-radius: var(--border-radius-medium) var(--border-radius-medium)
+    var(--border-radius-medium) var(--border-radius-high);
+}
+
+.upload-title {
+  display: flex;
+  align-items: center;
+
+  --padding-vertical: min(1vw, 19.2px);
+  padding-top: var(--padding-vertical);
+  padding-bottom: var(--padding-vertical);
+
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background-color: var(--grey-l2);
+}
+
+.upload-main {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+#upload-resume {
+  display: none;
+}
+
+#form-resume {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#form-resume .alt-upload figure {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: min(1.56vw, 30px) 0;
+  height: min(3.65vw, 70px);
+}
+
+#form-resume figure:hover {
+  filter: var(--text-hover-filter);
+}
+
+#form-resume figure:active {
+  filter: var(--text-active-filter);
+}
+
+.alt-upload .upload-text {
+  margin-left: min(0.78vw, 15px);
+  width: fit-content;
+
+  text-decoration: underline;
+  color: var(--text-color-pink);
+}
+
+/*  Console */
+.cnl-bold {
+  font-weight: 700;
+  color: var(--text-color-black);
+}
+
+.cnl-yellow {
+  color: var(--text-color-yellow);
+  text-shadow: var(--text-shadow);
+}
+
+.cnl-green {
+  color: var(--text-color-green);
+}
+
+section.console {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  border-radius: var(--border-radius-high) var(--border-radius-medium)
+    var(--border-radius-medium) var(--border-radius-medium);
+  background-color: var(--grey-l2);
+}
+
+.console-display {
+  overflow-y: auto;
+  padding-top: var(--section-padding);
+  height: min(17.97vw, 345px);
+}
+
+.console-status {
+  overflow-y: auto;
+
+  height: min(14.06vw, 270px);
+  padding-top: var(--section-padding);
+  background-color: var(--grey-l0);
+}
+
+.console-footer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: min(3.65vw, 70px);
+}
+
+.console-footer .start-test {
+  padding: 0.13% 0.88%;
+  width: fit-content;
+
+  border-radius: var(--border-radius-small);
+  box-shadow: 0 var(--box-shadow-medium);
+  color: var(--text-color-black);
+}
