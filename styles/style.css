@@ -1,111 +1,120 @@
-@import url(./null.css);
-@import url(./colors.css);
-@import url(./fonts.css);
+@import url(./_null.css);
+@import url(./_theme.css);
+@import url(./_fonts.css);
+@import url(./_media.css);
 
-body {
-    margin: 0;
-}
-
+/* w1920px */
 .wrapper {
-    max-width: 1920px;
-    margin: auto;
+  max-width: 1920px;
+  margin: auto;
 }
+
+/* Header h135px*/
 
 header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #151018;
-    max-height: 7.03vw;
+  display: flex;
+  justify-content: space-between;
+  height: 7.03vw;
+  max-height: 135px;
+  background-color: var(--black);
+  color: var(--text-color-white);
 }
 
-/* 1012px */
+/* w278px */
+header .logo-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 1.04%;
+  padding-right: 0;
+  width: 13.75%;
+}
+
+header .logo-icon {
+  margin-right: 3.79%;
+  width: 34.17%;
+  border-radius: 26.31%;
+}
+
+header .logo-text {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  width: min-content;
+  height: 78.95%;
+  border-top: 1px solid var(--grey-l1);
+  border-bottom: 1px solid var(--grey-l1);
+
+  font-family: "Aleo", sans-serif;
+  font-size: 1.625em;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  color: var(--text-color-grey);
+}
+
+/* w991px */
 nav {
-    width: 52.71%;
-    min-height: 100%;
+  width: 51.61%;
 }
 
 nav ul {
-    display: flex;
-    min-height: 100%;
-    background-color: red;
+  display: flex;
+  justify-content: space-around;
+
+  min-height: 100%;
+
+  font-family: sans-serif;
+  font-size: 1.625em;
+  font-weight: 400;
 }
 
-nav .nav-button {
-    background-color: white;
-    align-content: center;
-    padding: 0 2.96%;
+nav .nav-btn,
+nav .nav-btn a {
+  display: flex;
+  flex-grow: 1;
 }
 
-nav .profile {
-    display: block;
-    padding: 0;
-    width: 18.33%;
-    background-color: green;
+nav .nav-btn a {
+  justify-content: center;
+  align-items: center;
 }
 
-.logo-pic {
-    width: 95px;
-    border-radius: 25px;
-} /* Deprecated */
-
-.logo-text {
-    width: 100px;
-} /* Deprecated */
-
-/* Should be transformed to: */
-
-.logo {
-    width: 195;
+nav .nav-btn:not(:last-of-type):hover {
+  background-color: var(--grey-l0);
 }
 
-.site-navigation {
-    color: white;
-    padding: 3vw;
-    display: inline-block;
-    float: right;
+nav .nav-btn.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.log-in {
-    height: 2vh;
-    width: 4vw;
-    position: relative;
-    top: 0vh;
-    border-radius: 20vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
-    width: 115px;
-    height: 45px;
-    left: 1750px;
-    top: 47px;
-    background: #0D99FF;
-    border-radius: 45.36px;
-    text: #FFFFFF;
-    font-size: 20px;
+nav .nav-btn.profile a {
+  flex-grow: 0;
+  padding: 5.72%;
+  border-radius: 2.81em;
+  background-color: var(--cyan);
 }
 
 /* Body config */
 
 .instruction {
-    background-color: gray;
-    color: white;
-    width: 900px;
-    height: 400px;
-    border-radius: 35px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    top: 20vh;
-    font-family: 'JetBrains Mono'
+  background-color: gray;
+  color: white;
+  width: 900px;
+  height: 400px;
+  border-radius: 35px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20vh;
+  font-family: "JetBrains Mono";
 }
 
 h1 {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
 }
 
 /*
@@ -117,15 +126,15 @@ h1 {
 /* MOVE FOOTER TO THE END */
 
 footer {
-    width: 100%;
-    left: 0;
-    top: 100%;
-    background-color: black;
-    flex: 0 0 auto;
-    z-index: 9999999;
-    margin-top: auto;
-    height: 100px;
-    flex: 0 0 auto;
+  width: 100%;
+  left: 0;
+  top: 100%;
+  background-color: black;
+  flex: 0 0 auto;
+  z-index: 9999999;
+  margin-top: auto;
+  height: 100px;
+  flex: 0 0 auto;
 }
 
 /****************************************************************************/
@@ -134,109 +143,109 @@ footer {
 /* *************************** upper console part ************************* */
 
 #mini-console-upper {
-    width: 1518.89px;
-    height: 347px;
-    left: 171px;
-    top: 1253px;
+  width: 1518.89px;
+  height: 347px;
+  left: 171px;
+  top: 1253px;
 }
 
 #mini-console-upper #prompt {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #mini-console-upper #prompt-input {
-    color: var(--text-color-yellow);
-    border: 0.5px solid #000000;
+  color: var(--text-color-yellow);
+  border: 0.5px solid #000000;
 }
 
 #mini-console-upper #want-continue {
-    color: var(--text-color-grey);
+  color: var(--text-color-grey);
 }
 
 /* texmplate to add the border: diff. brows. */
 
 c {
-    background: var(--semi-dark); /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    padding: 10px; /* Поля вокруг текста */
-    -moz-border-radius: 5px; /* Для Firefox 3 */
-    -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
-    border-radius: 5px; /* Для современных браузеров */
+  background: var(--semi-dark); /* Цвет фона */
+  color: #fff; /* Цвет текста */
+  padding: 10px; /* Поля вокруг текста */
+  -moz-border-radius: 5px; /* Для Firefox 3 */
+  -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+  border-radius: 5px; /* Для современных браузеров */
 }
 
 /* ************************** middle console part ************************** */
 
 #mini-console-middle #console-middle {
-    width: 1468.87px;
-    height: 347px;
-    left: 221.13px;
-    top: 1600px;
+  width: 1468.87px;
+  height: 347px;
+  left: 221.13px;
+  top: 1600px;
 }
 
 #mini-console-middle #status-label {
-    width: 1130.67px;
-    height: 159px;
-    left: 305.18px;
-    top: 1600px;
+  width: 1130.67px;
+  height: 159px;
+  left: 305.18px;
+  top: 1600px;
 
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 48px;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 48px;
 
-    color: #4AAF48;
+  color: #4aaf48;
 }
 
 .tests-results-block {
-    text: #ff0000;
+  color: #ff0000;
 }
 
 /* ************************** lower console part *************************** */
 
 #mini-console-lower {
-    width: 1468.87px;
-    height: 71px;
-    left: 221.13px;
-    top: 1876px;
+  width: 1468.87px;
+  height: 71px;
+  left: 221.13px;
+  top: 1876px;
 }
 
 /* upper part rectangle */
 
 #mini-console-lower #end-of-begin {
-    width: 506.33px;
-    height: 47px;
-    left: 964.09px;
-    top: 1888px;
+  width: 506.33px;
+  height: 47px;
+  left: 964.09px;
+  top: 1888px;
 
-    background: #B7C2D4;
-    box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.23);
+  background: #b7c2d4;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.23);
 }
 
 /*************************************************************************/
 /********************************* Other *********************************/
 
 #block-for-download {
-    height: 10vh;
-    width: 20vw;
-    border-radius: 0px 0px 15px 60px;
-    background-color: #686A77;
+  height: 10vh;
+  width: 20vw;
+  border-radius: 0px 0px 15px 60px;
+  background-color: #686a77;
 }
 
 #header-for-block-download {
-    height: 2vh;
-    width: 20vw;
-    background-color: #B7C2D4;
-    border-radius: 0px 10px 0px 0px;
+  height: 2vh;
+  width: 20vw;
+  background-color: #b7c2d4;
+  border-radius: 0px 10px 0px 0px;
 }
 
 .mini-console {
-    background-color: #B7C2D4;
-    width: 50em;
-    height: 25em;
-    border-radius: 0 10px 0 0;
+  background-color: #b7c2d4;
+  width: 50em;
+  height: 25em;
+  border-radius: 0 10px 0 0;
 }
 
 .page {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
