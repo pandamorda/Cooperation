@@ -1,0 +1,14 @@
+:root {
+    /* backgrounds */
+    --deep-dark: #151018;
+    --color-blue: #3A3A45;
+    --dark: #686A77;
+    --semi-dark: #B7C2D4;
+    --blue: #0D99FF;
+
+    /* text */
+    --text-color-green: #4AAF48;
+    --text-color-yellow: #FFC120;
+    --text-color-grey: #89919F;
+    --text-color-pink: #FDE0FF;
+}

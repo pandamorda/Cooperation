@@ -1,0 +1,8 @@
+:root {
+    /* fonts */
+    --en-default: 'JetBrains Mono';
+    --en-default-style: normal;
+
+    --ua-default: 'JetBrains Mono';
+    --ua-default: normal;
+}
