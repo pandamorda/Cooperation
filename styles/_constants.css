@@ -1,0 +1,4 @@
+:root {
+  --download-section-height: min(10vw, 192px);
+  --console-section-height: min(47.26vw, 691px);
+}
