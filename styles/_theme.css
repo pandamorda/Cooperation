@@ -1,14 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+
 :root {
   --black: #120d14;
   --grey: #3a3a45;
   --grey-l0: #2e2e39;
   --grey-l1: #686a77;
   --grey-l2: #b7c2d4;
+  --pink: #c3b1bd;
   --cyan: #0d99ff;
 
   --text-color-green: #4aaf48;
   --text-color-yellow: #ffc120;
   --text-color-grey: #89919f;
-  --text-color-pink: #fde0ff;
+  --text-color-pink: var(--pink);
   --text-color-white: #fff;
+
+  --box-shadow: 0 0.25em 0.25em #0004;
+  --text-shadow: 0.0625em 0.0625em 0.25em #000;
+
+  --border-radius-high: min(5.2vw, 100px);
+  --border-radius-medium: min(1.3vw, 25px);
+  --border-radius-small: min(0.26vw, 5px);
+
+  --content-width: 75%;
+  --content-padding: 5.21% 5.81% 5.67% 5.81%;
+  --content-font-family: "JetBrains Mono", sans-serif;
+  --content-font-size: 1.5em;
+  --content-par-indent: 5%;
+  --footer-height: min(6.61vw, 127px);
+  --header-height: min(5.73vw, 110px);
+  --header-font-size: 1.625em;
+  --section-padding: 3.95%;
+  --section-bottom-margin: 2.6%;
+  --wrapper-max-width: 1920px;
 }
