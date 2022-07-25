@@ -2,19 +2,11 @@
   body {
     font-size: 16px;
   }
-  main:before,
-  main:after {
-    filter: blur(4px);
-  }
 }
 
 @media (min-width: 1440px) and (max-width: 1919px) {
   body {
     font-size: 12px;
-  }
-  main:before,
-  main:after {
-    filter: blur(3px);
   }
 }
 
@@ -22,19 +14,11 @@
   body {
     font-size: 10px;
   }
-  main:before,
-  main:after {
-    filter: blur(2.5px);
-  }
 }
 
 @media (min-width: 960px) and (max-width: 1199px) {
   body {
     font-size: 8px;
-  }
-  main:before,
-  main:after {
-    filter: blur(2px);
   }
 }
 
@@ -42,19 +26,11 @@
   body {
     font-size: 6px;
   }
-  main:before,
-  main:after {
-    filter: blur(1.5px);
-  }
 }
 
 @media (min-width: 480px) and (max-width: 719px) {
   body {
     font-size: 4px;
-  }
-  main:before,
-  main:after {
-    filter: blur(1px);
   }
 }
 
@@ -62,18 +38,10 @@
   body {
     font-size: 3px;
   }
-  main:before,
-  main:after {
-    filter: blur(0.75px);
-  }
 }
 
 @media (max-width: 359px) {
   body {
     font-size: 2px;
-  }
-  main:before,
-  main:after {
-    filter: blur(0.5px);
   }
 }
