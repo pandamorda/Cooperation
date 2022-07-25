@@ -48,15 +48,11 @@ header {
   margin-right: 3.79%;
 }
 
-.logo-wrapper figcaption {
+.logo-wrapper .logo-text {
+  display: flex;
   width: min-content;
-}
-
-.logo-text {
-  display: block;
   border-top: 0.1em solid var(--grey-l1);
   border-bottom: 0.1em solid var(--grey-l1);
-
   font-family: "Aleo", sans-serif;
   font-size: 1.25em;
   letter-spacing: 0.13em;
@@ -114,9 +110,7 @@ main:after {
   content: "";
   flex-grow: 1;
   display: flex;
-  opacity: var(--main-background-opacity);
-  background: url("../src/images/main_background.png");
-  background-size: var(--main-background-size);
+  background-color: var(--grey);
 }
 
 main:after {
