@@ -7,8 +7,11 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+
   margin: auto;
   max-width: var(--wrapper-max-width);
+  min-height: 100vh;
+
   background-color: var(--black);
 }
 
@@ -101,8 +104,26 @@ nav ul {
 }
 
 /* Main */
+main {
+  flex-grow: 1;
+  display: flex;
+}
+
+main:before,
+main:after {
+  content: "";
+  flex-grow: 1;
+  display: flex;
+  opacity: var(--main-background-opacity);
+  background: url("../src/images/main_background.png");
+  background-size: var(--main-background-size);
+}
+
+main:after {
+  background-position-x: var(--main-background-pos-x);
+}
+
 .content {
-  margin: auto;
   padding: var(--content-padding);
   width: var(--content-width);
 
@@ -122,4 +143,37 @@ h2 {
 /* Footer */
 footer {
   height: var(--footer-height);
+}
+
+/* Elements hover / active */
+.clicable {
+  position: relative;
+}
+
+.clicable:hover:before,
+.clicable:active:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  background-color: #fff;
+  opacity: 0.1;
+  border-radius: inherit;
+}
+
+.clicable:active:before {
+  opacity: 0.15;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--grey);
+}
+::-webkit-scrollbar-track-piece {
+  background-color: var(--black);
 }
