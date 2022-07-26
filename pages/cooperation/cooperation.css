@@ -7,7 +7,7 @@
 
   border-radius: var(--border-radius-medium);
   background-color: var(--grey-l1);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-medium);
 
   color: var(--text-color-white);
 }
@@ -55,7 +55,7 @@
 
   border-radius: 0 0 var(--border-radius-medium) var(--border-radius-high);
   background-color: var(--grey-l1);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-medium);
 }
 
 .upload-main #upload-input {
@@ -133,7 +133,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-medium);
 
   border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
   background-color: var(--grey-l2);
@@ -144,6 +144,6 @@
   display: block;
   padding: 0.13% 0.88%;
   border-radius: var(--border-radius-small);
-  box-shadow: 0 var(--box-shadow);
+  box-shadow: 0 var(--box-shadow-medium);
   background-color: inherit;
 }
