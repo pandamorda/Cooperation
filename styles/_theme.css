@@ -10,13 +10,15 @@
   --grey-l2: #b7c2d4;
   --pink: #c3b1bd;
 
+  --text-color-black: var(--black);
   --text-color-green: #4aaf48;
   --text-color-grey: #89919f;
   --text-color-pink: var(--pink);
   --text-color-white: #fff;
   --text-color-yellow: #ffc120;
 
-  --box-shadow: 0 0.25em 0.25em #0004;
+  --box-shadow-medium: 0 0.25em 0.25em #0004;
+  --box-shadow-small: 0 0.1em 0.1em #0004;
   --text-shadow: 0.0625em 0.0625em 0.25em #000;
 
   --border-radius-high: min(5.2vw, 100px);

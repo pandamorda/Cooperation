@@ -1,9 +1,9 @@
 @import url("./_null.css");
 @import url("./_theme.css");
 @import url("./_constants.css");
-@import url("./_fonts.css");
 @import url("./_media.css");
 
+/* Wrapper w1920px  */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -13,6 +13,7 @@
   min-height: 100vh;
 
   background-color: var(--black);
+  font-family: var(--default-font-family);
 }
 
 /* Header */
@@ -22,19 +23,20 @@ header {
   z-index: 1;
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
   max-width: var(--wrapper-max-width);
   height: var(--header-height);
 
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-medium);
   background-color: inherit;
   color: var(--text-color-white);
 }
 
 .logo-wrapper {
-  padding: 1.04%;
-  padding-right: 0;
-  width: 13.75%;
+  margin-left: 1.04%;
+  width: 13.02%;
+  height: 70.91%;
 }
 
 .logo-wrapper figure {
@@ -51,10 +53,10 @@ header {
 .logo-wrapper .logo-text {
   display: flex;
   width: min-content;
-  border-top: 0.1em solid var(--grey-l1);
-  border-bottom: 0.1em solid var(--grey-l1);
+  border-top: 0.1vw solid var(--grey-l1);
+  border-bottom: 0.1vw solid var(--grey-l1);
   font-family: "Aleo", sans-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   line-height: 1.3em;
@@ -63,13 +65,14 @@ header {
 
 nav {
   width: 51.61%;
+  height: 100%;
 }
 
 nav ul {
   display: flex;
   justify-content: space-around;
 
-  min-height: 100%;
+  height: 100%;
 
   font-family: sans-serif;
   font-size: var(--header-font-size);
@@ -99,7 +102,7 @@ nav ul {
   background-color: var(--cyan);
 }
 
-/* Main */
+/* Main w1440px */
 main {
   flex-grow: 1;
   display: flex;
@@ -110,19 +113,22 @@ main:after {
   content: "";
   flex-grow: 1;
   display: flex;
-  background-color: var(--grey);
+
+  background: url("/src/images/main_background.png");
+  background-size: var(--main-background-size);
+  filter: var(--main-background-filter);
 }
 
 main:after {
   background-position-x: var(--main-background-pos-x);
 }
 
+/* Content w1240px  */
 .content {
   padding: var(--content-padding);
   width: var(--content-width);
 
-  background-color: var(--grey-l0);
-  font-family: var(--content-font-family);
+  background-color: var(--grey);
   font-size: var(--content-font-size);
 }
 
@@ -130,8 +136,10 @@ main:after {
   text-indent: var(--content-par-indent);
 }
 
+h1,
 h2 {
   font-size: 1.5em;
+  color: var(--text-color-white);
 }
 
 /* Footer */
@@ -165,9 +173,11 @@ footer {
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: var(--grey);
 }
+
 ::-webkit-scrollbar-track-piece {
   background-color: var(--black);
 }

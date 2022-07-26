@@ -1,16 +1,17 @@
 :root {
-  --content-width: 75%;
-  --content-padding: 5.21% 5.81% 5.67% 5.81%;
-  --content-font-family: "JetBrains Mono", sans-serif;
   --content-font-size: 1.5em;
+  --content-padding: 5.2%;
   --content-par-indent: 5%;
+  --content-width: 75%;
+  --default-font-family: "JetBrains Mono", sans-serif;
   --footer-height: min(6.61vw, 127px);
   --header-height: min(5.73vw, 110px);
   --header-font-size: 1.625em;
+  --main-background-filter: brightness(0.6);
   --main-background-size: 500%;
   --main-background-pos-x: 50%;
   --scrollbar-width: 1.04vw;
-  --section-padding: 3.95%;
   --section-bottom-margin: 2.6%;
+  --section-padding: 3.95%;
   --wrapper-max-width: 1920px;
 }

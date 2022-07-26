@@ -35,9 +35,21 @@ ul,
 ol,
 li,
 button,
-a {
+a,
+fieldset,
+legend {
   outline: none;
   box-sizing: border-box;
+}
+
+legend,
+fieldset,
+figure {
+  padding-block: 0;
+  padding-inline: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  border: none;
 }
 
 h1,
@@ -51,4 +63,5 @@ h6 {
   text-align: center;
   line-height: 0.75;
   margin: 0;
+  margin-block: 0;
 }
