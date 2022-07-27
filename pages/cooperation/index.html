@@ -8,7 +8,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <a href="/index.html" class="logo-wrapper">
+        <a href="/index.html" class="logo-link">
           <figure>
             <img
               class="logo-icon"
@@ -33,7 +33,7 @@
               <a href="#">Головна</a>
             </li>
             <li class="nav-btn clicable">
-              <a href="#">Співпраця</a>
+              <a href="#form-resume">Співпраця</a>
             </li>
             <li class="nav-btn clicable">
               <a href="#">Про нас</a>
@@ -77,28 +77,28 @@
             </div>
             <div class="upload-main">
               <form
+                id="form-resume"
+                action="#"
                 method="post"
                 enctype="multipart/form-data"
-                action="#"
-                id="resume-upload"
               >
-                <input type="file" id="upload-input" accept=".doc,.docx" />
-                <label for="upload-input">
+                <input id="upload-resume" type="file" accept=".doc,.docx" />
+
+                <label class="alt-upload" for="upload-resume">
                   <figure>
                     <img
-                      src="/src/images/file_icon.png"
+                      src="/src/images/cooperation/file_icon.png"
                       alt="File icon blue."
                     />
-                    <figcaption class="file-text">
+                    <figcaption class="upload-text">
                       Натисніть, щоб додати Ваш документ
                     </figcaption>
                   </figure>
                 </label>
+                <span id="upload-status">
+                  &#9989; Все добре / &#10071; Потрібно довантаження
+                </span>
               </form>
-
-              <span class="upload-status">
-                &#9989; Все добре / &#10071; Потрібно довантаження
-              </span>
             </div>
           </section>
 
@@ -118,11 +118,8 @@
             </div>
 
             <div class="console-status">
-              <p>
-                Status:<br /><span class="cnl-green"
-                  >--- Tests are available! ---</span
-                >
-              </p>
+              Status:<br />
+              <span class="cnl-green">--- Tests are available! ---</span>
             </div>
 
             <div class="console-footer">
