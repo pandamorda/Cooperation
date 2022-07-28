@@ -1,0 +1,19 @@
+@import url("/styles/style.css");
+
+.preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video {
+    border-radius: 1em;
+    margin-right: 10%;
+}
+h1 {
+    font-size: 1.5em;
+    margin-bottom: var(--section-bottom-margin);
+}
+h2 {
+    margin-bottom: var(--section-bottom-margin);
+}
