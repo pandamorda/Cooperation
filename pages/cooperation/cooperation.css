@@ -54,6 +54,7 @@ section.upload {
 
 .alt-upload .upload-text {
   margin-left: min(0.78vw, 15px);
+  width: fit-content;
 
   text-decoration: underline;
   color: var(--text-color-pink);
@@ -109,6 +110,8 @@ section.console {
 
 .console-footer .start-test {
   padding: 0.13% 0.88%;
+  width: fit-content;
+
   border-radius: var(--border-radius-small);
   box-shadow: 0 var(--box-shadow-medium);
   color: var(--text-color-black);

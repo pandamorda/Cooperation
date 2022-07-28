@@ -86,6 +86,7 @@ nav ul {
 
 .nav-btn a {
   padding: 0 min(1.3vw, 25px);
+  width: fit-content;
 }
 
 .nav-btn.profile {
