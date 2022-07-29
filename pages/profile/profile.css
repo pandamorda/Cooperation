@@ -1,0 +1,132 @@
+@import url("../../styles/style.css");
+
+
+
+.main-profile {
+    /*background: var();*/
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid #B7C2D4;
+    color: var(--text-color-white);
+    width:22vw;
+    height: 26vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background:  var(--grey-l3);
+}
+
+.main-profile .img_3 {
+    display: block;
+    float: left;
+    border-radius: var(--border-radius-high);
+    min-height: 20vh;
+    max-height: 40vh;
+
+}
+
+.main-profile p {
+    width: 40%;
+    height: 10%;
+    right: 7%;
+
+}
+.githab{
+
+
+}
+.main-profile .button-summary {
+    clear: both;
+    background:  var(--grey);
+    color: white;
+    width: 5vw;
+    height: 3vh;
+    border: 1px solid white;
+    min-height:3vh ;
+    border-radius: var(--border-radius-medium);
+}
+
+.setting-profile {
+    background: var(--grey-l3);
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid #B7C2D4;
+    color: azure;
+    border: outset 2px white;
+    width:22vw;
+    height: 40vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    left: 15%;
+    top: 110px;
+    text-align: center;
+}
+
+.setting-profile .dataBlock_2 {
+    position: relative;
+
+    width: 100%;
+    height: 30px;
+}
+
+.setting-profile .title {
+    position: relative;
+    width: 100%;
+}
+.process {
+    background: var(--grey-l3);
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid #B7C2D4;
+    color: var(--text-color-white);
+    max-width: 35%;
+    height: 20vh;
+    position: relative;
+}
+
+.process .title {
+    float: right;
+    position: relative;
+    right: 5%;
+}
+.progress{
+    width: 24vw;
+    height:3vh;
+    background-color: #4aaf48;
+    border-radius: 0px 0px 25px 25px;
+    border: 3px solid #4aaf48;
+    position: relative;
+    top: 85%;
+}
+
+.process .progress span{
+    display: block;
+    height:100%;
+    width: 53.24%;
+    background-color: #0d99ff;
+    position:relative;
+    border-radius: 55px 100px 0px 55px;
+}
+.questionnaire {
+    background: #34343F;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid #B7C2D4;
+    color: azure;
+    max-width: 35%;
+    height: 40vh;
+    position: relative;
+}
+
+.questionnaire p {
+    text-align: center;
+}
+/*Для зачеркивания текста*/
+input[type=checkbox]:checked + .task {
+    text-decoration: line-through;
+}
+footer{
+    background-color: var(--black);
+}

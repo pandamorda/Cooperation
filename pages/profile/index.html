@@ -2,69 +2,84 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="profile.css">
         <title>Profile</title>
     </head>
     <body>
     <div class="wrapper">
         <header>
-            <div  class="logos">
-                <img id="logo-pic" src="../src/logo-pic.jpeg" alt="Logo">
-                <img id="logo-text" src="../src/logo-text.png" alt="Name">
-            </div>
-            <div class="buttons">
-               <button class="main-menu">Головна</button>
-               <button class="main-menu">Навчання</button>
-               <button class="main-menu">Проекти</button>
-               <button class="main-menu">Cпiвпраця</button>
-               <button class="main-menu">Про нас</button>
-               <button class="main-menu" id="profile">Профiль</button>
-            </div>
+            <a href="/index.html" class="logo-link">
+                <figure>
+                    <img
+                            class="logo-icon"
+                            src="/src/images/logo_icon.jpeg"
+                            alt="Logo picture."
+                    />
+                    <figcaption class="logo-text">
+                        <span>Initiative Group</span>
+                    </figcaption>
+                </figure>
+            </a>
+
+            <nav>
+                <ul>
+                    <li class="nav-btn clicable">
+                        <a href="#">Проєкти</a>
+                    </li>
+                    <li class="nav-btn clicable">
+                        <a href="#">Навчання</a>
+                    </li>
+                    <li class="nav-btn clicable">
+                        <a href="#">Головна</a>
+                    </li>
+                    <li class="nav-btn clicable">
+                        <a href="#form-resume">Співпраця</a>
+                    </li>
+                    <li class="nav-btn clicable">
+                        <a href="#">Про нас</a>
+                    </li>
+                    <li class="nav-btn profile class">
+                        <a href="#" class="clicable">Профіль</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
         <main>
-
-        <img src="../../src/images/profile/cod.png" class="img_1">
-        <img src="../../src/images/profile/cod.png" class="img_2">
-
-        <div class="block_1">
-            <img src="../../src/images/profile/PROF_1.jpg" class="img_3">
-            <img src="../../src/images/profile/githab.png" class="githab">
-            <img src="../../src/images/profile/likedin.png" class="linkedin">
-            <p class="dataBlock_1">Ім'я:</p>
-            <p class="dataBlock_1">Призвіще:</p>
-            <p class="dataBlock_1">Нікнейм:</p>
-            <a href="https://www.google.com/search?rlz=1C1SQJL_ruUA948UA948&sxsrf=ALiCzsbFQ04E1NJH2aDDTT2-jtTTtn5EIg:1658523150261&source=lnms&tbm=isch&q=%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5&sa=X&ved=2ahUKEwia_uOZsI35AhVWiP0HHYPcDpMQ_AUoAXoECAIQAw&biw=1536&bih=714&dpr=1.25"><button class="cnopkaRezum">Резюме</button></a>
-        </div>
-
-        <div class="block_2">
-            <p class="title">Налаштування</p>
-            <p class="dataBlock_2">Змінити ім'я / призвіще</p>
-            <p class="dataBlock_2">Змінити пароль</p>
-            <p class="dataBlock_2">Змінити мову сайту</p>
-            <p class="dataBlock_2">Змінити електронну почту</p>
-            <p class="dataBlock_2">Редагувати резюме</p>
-        </div>
-
-        <div class="block_3">
-            <p class="title">Сайт для продаж типу</p>
-            <div class="progress">
-                <span></span>
+            <div class="main-profile">
+                <img src="../../src/images/profile/PROF_1.jpg" class="img_3">
+                <p>Ім'я:</p>
+                <p>Призвіще:</p>
+                <figure>
+                    <img src="../../src/images/profile/githab.png" class="githab">
+                    <img src="../../src/images/profile/likedin.png" class="linkedin">
+                </figure>
+                <button class="button-summary">Резюме</button>
             </div>
-        </div>
 
-        <div class="block_4">
-            <p>Анкета</p>
+            <div class="process">
+                <p class="title">Сайт для продаж типу</p>
+                <div class="progress">
+                    <span></span>
+                </div>
+            </div>
 
-            <input id="input-task">
-            <button id="add-task-button">ADD TASK</button>
-            <ul id="task-list">
-                <li><input type="checkbox"><span class="task">Complete the profile</span><button class="delete-btn">del</button></li>
-                <li><input type="checkbox"><span class="task">Run to the shop</span><button class="delete-btn">del</button></li>
-                <li><input type="checkbox"><span class="task">Cook</span><button class="delete-btn">del</button></li>
-            </ul>
-        </div>
+            <div class="setting-profile">
+                <p class="title">Налаштування</p>
+                <p class="dataBlock_2">Змінити ім'я / призвіще</p>
+                <p class="dataBlock_2">Змінити пароль</p>
+                <p class="dataBlock_2">Змінити мову сайту</p>
+                <p class="dataBlock_2">Змінити електронну почту</p>
+                <p class="dataBlock_2">Редагувати резюме</p>
+            </div>
 
+            <div class="questionnaire">
+                <p>Анкета</p>
+
+                <input id="input-task">
+                <button id="add-task-button">ADD TASK</button>
+                <ul id="task-list"></ul>
+            </div>
     </main>
 
     <footer>

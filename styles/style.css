@@ -11,7 +11,7 @@
   max-width: var(--wrapper-max-width);
   min-height: 100vh;
 
-  background-color: var(--black);
+  background-color: var(--grey);
   font-family: var(--default-font-family);
 }
 
@@ -28,7 +28,7 @@ header {
   height: var(--header-height);
 
   box-shadow: var(--box-shadow-medium);
-  background-color: inherit;
+  background-color: var(--black);
   color: var(--text-color-white);
 }
 
