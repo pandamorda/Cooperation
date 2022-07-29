@@ -31,6 +31,6 @@
   --box-shadow-small: 0 var(--vw1px) var(--box-shadow-color);
   --text-shadow: var(--vw1px) var(--vw1px) var(--vw4px) var(--black);
 
-  --text-active-filter: brightness(120%);
-  --text-hover-filter: brightness(110%);
+  --active-filter: brightness(120%);
+  --hover-filter: brightness(110%);
 }

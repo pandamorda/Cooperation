@@ -99,6 +99,15 @@ nav ul {
   background-color: var(--cyan);
 }
 
+/* Nav button states */
+.nav-btn:not(.profile):hover {
+  backdrop-filter: brightness(210%) saturate(0);
+}
+
+.nav-btn:not(.profile):active {
+  backdrop-filter: brightness(220%) saturate(0);
+}
+
 /* Main w1440px */
 main {
   flex-grow: 1;

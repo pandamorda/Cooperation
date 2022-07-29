@@ -8,13 +8,17 @@
 }
 
 /* Headers / lists */
+h1,
+h2 {
+  font-size: 1.5em;
+}
+
 h1 {
   margin-bottom: var(--section-bottom-margin);
 }
 
-h1,
-section h2 {
-  font-size: 1.5em;
+h2 {
+  margin-bottom: min(1.04vw, 20px);
 }
 
 section ol {
@@ -31,10 +35,10 @@ section li {
 
 /* Elements hover / active */
 .clicable:hover {
-  filter: var(--text-hover-filter);
+  filter: var(--hover-filter);
 }
 .clicable:active {
-  filter: var(--text-active-filter);
+  filter: var(--active-filter);
 }
 
 /* Scrollbar */
