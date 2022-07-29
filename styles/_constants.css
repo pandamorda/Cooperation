@@ -1,9 +1,24 @@
+@import url("./_theme.css");
+
 :root {
+  --input-border-radius: var(--border-radius-medium);
+  --input-height: min(3.12vw, 60px);
+  --input-img-container-size: min(11.45vw, 220px);
+  --input-margin-bottom: min(1.04vw, 20px);
+  --input-margin-right: min(1.04vw, 20px);
+
+  --input-text-l-padding: min(1.04vw, 20px);
+  --input-text-width: min(9.36vw, 180px);
+  --input-small-size: var(--input-height);
+
   --content-font-size: 1.5em;
   --content-padding: min(5.2vw, 100px);
   --content-par-indent: min(2.5vw, 48px);
   --content-width: 75%;
   --default-font-family: "JetBrains Mono", sans-serif;
+
+  --fieldset-h-padding: var(--input-margin-bottom);
+  --fieldset-margin-bottom: min(3.08vw, 60px);
 
   --footer-height: min(6.61vw, 127px);
   --header-height: min(5.73vw, 110px);
@@ -15,6 +30,6 @@
   --scrollbar-width: 1.04vw;
 
   --section-bottom-margin: min(1.56vw, 30px);
-  --section-padding: min(2.6vw, 50px);
+  --section-padding: var(--border-radius-high);
   --wrapper-max-width: 1920px;
 }
