@@ -32,49 +32,53 @@
                 <h1>Тест</h1>
                 <form class="resume-form" action="#">
                     <section class="questions">
-                        <fieldset class="form-fieldset">
+                        <fieldset id="q1" class="form-fieldset anchor">
                             <legend class="form-question">Lorem ipsum dolor sit amet ?</legend class="form-question">
 
                             <fieldset class="fieldset-inputs">
-                                <input id="1" type="checkbox" name="1">
-                                <label for="1">Lorem, ipsum.</label>
-                                <br>
-
-                                <input id="2" type="checkbox" name="1">
-                                <label for="2">Lorem, ipsum.</label>
-                                <br>
-
-                                <input id="3" type="checkbox" name="1">
-                                <label for="3">Lorem, ipsum.</label>
+                                <p>
+                                    <input class="clicable" id="1" type="checkbox" name="1">
+                                    <label for="1">Lorem, ipsum.</label>
+                                </p>
+                                <p>
+                                    <input class="clicable" id="2" type="checkbox" name="1">
+                                    <label for="2">Lorem, ipsum.</label>
+                                </p>
+                                <p>
+                                    <input class="clicable" id="3" type="checkbox" name="1">
+                                    <label for="3">Lorem, ipsum.</label>
+                                </p>
                             </fieldset>
                         </fieldset>
 
-                        <fieldset class="form-fieldset">
+                        <fieldset id="q2" class="form-fieldset anchor">
                             <legend class="form-question">Lorem ipsum dolor sit amet ?</legend class="form-question">
 
                             <fieldset class="fieldset-inputs">
-                                <input id="4" type="radio" name="2">
-                                <label for="4">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit.
-                                </label>
-                                <br>
-
-                                <input id="5" type="radio" name="2">
-                                <label for="5">Lorem, ipsum.</label>
-                                <br>
-
-                                <input id="6" type="radio" name="2">
-                                <label for="6">Lorem, ipsum.</label>
+                                <p>
+                                    <input class="clicable" id="4" type="radio" name="2">
+                                    <label for="4">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit aliqua.
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit aliqua.
+                                    </label>
+                                </p>
+                                <p>
+                                    <input class="clicable" id="5" type="radio" name="2">
+                                    <label for="5">Lorem, ipsum.</label>
+                                </p>
+                                <p>
+                                    <input class="clicable" id="6" type="radio" name="2">
+                                    <label for="6">Lorem, ipsum.</label>
+                                </p>
                             </fieldset>
                         </fieldset>
 
-                        <fieldset class="form-fieldset">
+                        <fieldset id="q3" class="form-fieldset anchor">
                             <legend class="form-question">Lorem ipsum dolor sit amet ?</legend class="form-question">
 
                             <fieldset class="fieldset-inputs input-figures">
                                 <figure>
-                                    <input id="8" type="checkbox">
+                                    <input class="clicable" id="8" type="checkbox">
                                     <label class="label-figure" for="8">
                                         <span class="input-img-container">
                                             <img src="/src/images/logo_icon.jpeg" alt="">
@@ -84,7 +88,7 @@
                                 </figure>
 
                                 <figure>
-                                    <input id="9" type="checkbox">
+                                    <input class="clicable" id="9" type="checkbox">
                                     <label class="label-figure" for="9">
                                         <span class="input-img-container">
                                             <img src="/src/images/logo_icon.jpeg" alt="">
@@ -94,7 +98,7 @@
                                 </figure>
 
                                 <figure>
-                                    <input id="10" type="checkbox">
+                                    <input class="clicable" id="10" type="checkbox">
                                     <label class="label-figure" for="10">
                                         <span class="input-img-container">
                                             <img src="/src/images/logo_icon.jpeg" alt="">
@@ -104,7 +108,7 @@
                                 </figure>
 
                                 <figure>
-                                    <input id="11" type="checkbox">
+                                    <input class="clicable" id="11" type="checkbox">
                                     <label class="label-figure" for="11">
                                         <span class="input-img-container">
                                             <img src="/src/images/logo_icon.jpeg" alt="">
@@ -115,40 +119,48 @@
                             </fieldset>
                         </fieldset>
 
-                        <fieldset class="form-fieldset">
+                        <fieldset id="q4" class="form-fieldset anchor">
                             <legend class="form-question">Lorem ipsum dolor sit amet ?</legend class="form-question">
 
                             <fieldset class="fieldset-inputs matches">
-                                <div class="match-line">
+                                <p>
                                     <span>
-                                        <input id="11" type="text">
-                                        <label for="11">Lorem ipsum dolor sit amet.</label>
-                                    </span>
-                                    <span class="match-text">Lorem ipsum dolor sit.</span>
-                                </div>
-
-                                <div class="match-line">
-                                    <span>
-                                        <input id="12" type="text">
+                                        <input class="clicable" id="12" type="text" maxlength="1">
                                         <label for="12">Lorem, ipsum.</label>
                                     </span>
                                     <span class="match-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                         Voluptatum, quaerat!</span>
-                                </div>
-
-                                <div class="match-line">
+                                </p>
+                                <p>
                                     <span>
-                                        <input id="13" type="text">
+                                        <input class="clicable" id="13" type="text" maxlength="1">
                                         <label for="13">Lorem, ipsum.</label>
                                     </span>
                                     <span class="match-text">Lorem, ipsum dolor.</span>
-                                </div>
+                                </p>
+                                <p>
+                                    <span>
+                                        <input class="clicable" id="14" type="text" maxlength="1">
+                                        <label for="14">Lorem ipsum dolor sit amet.</label>
+                                    </span>
+                                    <span class="match-text">Lorem ipsum dolor sit.</span>
+                                </p>
                             </fieldset>
                         </fieldset>
 
-                        <button type="submit">Завершити</button>
+                        <button class="clicable" type="submit">Завершити</button>
                     </section>
-                    <section class="test-nav"></section>
+                    <section class="form-nav">
+                        <div class="nav-container">
+                            <span id="test-time">30:00</span>
+                            <ul class="nav">
+                                <li><a href="#q1"></a></li>
+                                <li><a href="#q2"></a></li>
+                                <li><a href="#q3"></a></li>
+                                <li><a href="#q4"></a></li>
+                            </ul>
+                        </div>
+                    </section>
                 </form>
         </main>
 

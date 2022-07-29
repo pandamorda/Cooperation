@@ -3,7 +3,7 @@
 :root {
   --input-border-radius: var(--border-radius-medium);
   --input-height: min(3.12vw, 60px);
-  --input-img-container-size: min(11.45vw, 220px);
+  --input-img-container-size: min(12.5vw, 240px);
   --input-margin-bottom: min(1.04vw, 20px);
   --input-margin-right: min(1.04vw, 20px);
 
