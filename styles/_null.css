@@ -15,18 +15,14 @@ ol {
 ul,
 ol,
 figure,
-input {
+input,
+p {
   padding: 0;
   margin: 0;
 }
 
 iframe {
   border: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 img {
@@ -47,14 +43,26 @@ button,
 a,
 fieldset,
 legend,
+input,
+span {
+  box-sizing: border-box;
+}
+
+a,
+button,
 input {
   outline: none;
-  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 
 legend,
