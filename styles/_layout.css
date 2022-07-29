@@ -1,6 +1,3 @@
-@import url("./_null.css");
-@import url("./_constants.css");
-
 /* Wrapper w1920px  */
 .wrapper {
   display: flex;
@@ -8,6 +5,7 @@
 
   margin: auto;
   max-width: var(--wrapper-max-width);
+
   min-height: 100vh;
 
   background-color: var(--black);
@@ -99,6 +97,15 @@ nav ul {
   background-color: var(--cyan);
 }
 
+/* Nav button states */
+.nav-btn:not(.profile):hover {
+  backdrop-filter: brightness(210%) saturate(0);
+}
+
+.nav-btn:not(.profile):active {
+  backdrop-filter: brightness(220%) saturate(0);
+}
+
 /* Main w1440px */
 main {
   flex-grow: 1;
@@ -131,7 +138,8 @@ main:after {
 }
 
 /* Content section w1240px */
-section {
+section,
+.section-like {
   padding: var(--section-padding);
 
   border-radius: var(--border-radius-medium);
@@ -139,7 +147,7 @@ section {
   box-shadow: var(--box-shadow-medium);
 }
 
-section > div {
+section>div {
   padding: 0 var(--section-padding);
 }
 

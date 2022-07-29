@@ -21,6 +21,7 @@
   --vw4px: calc(4 * var(--vw1px));
 
   --border-small: var(--vw1px) solid var(--grey-l1);
+  --border-medium: var(--vw4px) solid var(--grey-l1);
 
   --border-radius-high: min(2.6vw, 50px);
   --border-radius-medium: min(1.3vw, 25px);
@@ -31,6 +32,6 @@
   --box-shadow-small: 0 var(--vw1px) var(--box-shadow-color);
   --text-shadow: var(--vw1px) var(--vw1px) var(--vw4px) var(--black);
 
-  --text-active-filter: brightness(120%);
-  --text-hover-filter: brightness(110%);
+  --active-filter: brightness(120%);
+  --hover-filter: brightness(110%);
 }
