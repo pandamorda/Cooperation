@@ -1,0 +1,56 @@
+@import url("/styles/style.css");
+
+/* Header */
+header {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 4fr 3fr;
+}
+
+.progress-container {
+  position: relative;
+
+  font-size: 2em;
+  color: var(--text-color-black);
+}
+
+#test-progress {
+  width: 100%;
+  height: min(3.125vw, 60px);
+}
+
+.progress-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Main */
+.resume-form {
+  display: flex;
+}
+
+.resume-form section {
+  margin: 0;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+}
+
+section.test-nav {
+  flex-grow: 1;
+
+  padding: 0;
+  padding-left: min(1.04vw, 20px);
+  width: 25%;
+
+  background-color: inherit;
+  box-shadow: none;
+}
