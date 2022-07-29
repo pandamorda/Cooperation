@@ -14,7 +14,8 @@ ol {
 
 ul,
 ol,
-figure {
+figure,
+input {
   padding: 0;
   margin: 0;
 }
@@ -33,6 +34,10 @@ img {
   max-height: 100%;
 }
 
+form {
+  margin: 0;
+}
+
 div,
 section,
 ul,
@@ -41,9 +46,15 @@ li,
 button,
 a,
 fieldset,
-legend {
+legend,
+input {
   outline: none;
   box-sizing: border-box;
+}
+
+button {
+  padding: 0;
+  border: none;
 }
 
 legend,
@@ -53,6 +64,11 @@ figure {
   padding-inline: 0;
   margin-block: 0;
   margin-inline: 0;
+  border: none;
+}
+
+input {
+  appearance: none;
   border: none;
 }
 
