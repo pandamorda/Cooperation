@@ -1,0 +1,37 @@
+{
+	"name": "cooperation",
+	"version": "1.0.0",
+	"description": "<a id=\"top\"></a>",
+	"main": "a.js",
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "^8.20.0",
+		"eslint-config-prettier": "^8.5.0",
+		"husky": "^4.3.8",
+		"lint-staged": "^13.0.3",
+		"prettier": "^2.7.1",
+		"stylelint": "^14.9.1",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-rational-order": "^0.1.2",
+		"stylelint-config-standard": "^26.0.0",
+		"stylelint-order": "^5.0.0"
+	},
+	"scripts": {
+		"lint-css": "stylelint",
+		"lint-css:fix": "stylelint --fix",
+		"lint": "eslint --cache",
+		"lint:fix": "eslint --fix",
+		"format:check": "prettier --check",
+		"format": "prettier --write"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pandamorda/Cooperation.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/pandamorda/Cooperation/issues"
+	},
+	"homepage": "https://github.com/pandamorda/Cooperation#readme"
+}
