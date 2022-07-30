@@ -1,5 +1,3 @@
-@import url("./_constants.css");
-
 @import url("https://fonts.googleapis.com/css2?family=Aleo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
@@ -19,15 +17,20 @@
   --text-color-white: #fff;
   --text-color-yellow: #ffc120;
 
-  --box-shadow-medium: 0 min(0.2vw, 4px) min(0.2vw, 4px) #120d1444;
-  --box-shadow-small: 0 min(0.052vw, 1px) min(0.052vw, 1px) #120d1444;
-  --text-shadow: min(0.052vw, 1px) min(0.052vw, 1px) min(0.2vw, 4px)
-    var(--black);
+  --vw1px: min(0.052vw, 1px);
+  --vw4px: calc(4 * var(--vw1px));
 
-  --border-radius-high: var(--section-padding);
+  --border-small: var(--vw1px) solid var(--grey-l1);
+
+  --border-radius-high: min(2.6vw, 50px);
   --border-radius-medium: min(1.3vw, 25px);
   --border-radius-small: min(0.26vw, 5px);
 
-  --text-active-filter: brightness(120%);
-  --text-hover-filter: brightness(110%);
+  --box-shadow-color: #120d1444;
+  --box-shadow-medium: 0 var(--vw4px) var(--vw4px) var(--box-shadow-color);
+  --box-shadow-small: 0 var(--vw1px) var(--box-shadow-color);
+  --text-shadow: var(--vw1px) var(--vw1px) var(--vw4px) var(--black);
+
+  --active-filter: brightness(120%);
+  --hover-filter: brightness(110%);
 }
