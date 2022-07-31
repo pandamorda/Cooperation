@@ -1,1 +1,7 @@
+# IDE
+.vs/
+.DS_store/
+.idea/
+
+# build
 build/
