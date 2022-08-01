@@ -1,3 +1,13 @@
-build/
-node_modules/
+# IDE
+.vs/
+.DS_store/
+.idea/
+
+# cache 
 .eslintcache
+
+# build
+build/
+
+# modules
+node_modules/

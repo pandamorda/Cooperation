@@ -1,0 +1,141 @@
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+@font-face {
+    font-family:JetBrainsMonoRegular ;
+    src:url("../fonts/JB/JetBrainsMono-Regular.ttf") ;
+}
+@font-face {
+    font-family: UrbanistBold;
+    src: url("../fonts/Urbanist/Urbanist-Bold.ttf");
+}
+a{
+    text-decoration: none;  
+}
+a:visited{
+    color: white;
+}
+.wrapper{
+    min-height: 120px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 12.5vh;
+    background-color: #151018;
+}
+
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 37px;
+    width: 100px;
+    height: 100px;
+    border-radius: 27px;
+}
+
+.initiative_group{
+    font-family: JetBrainsMonoRegular;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 16px;
+    left: 177px;
+    border-top:2px solid white ;
+    border-bottom:2px solid white ;
+    width:20vh;
+    height: 4.583vw;
+    font-size: 1.75vw;
+    color: white;
+}
+
+.navigation{
+    font-family: JetBrainsMonoRegular;
+    height: 100%;
+    width: 45vw;
+    position: absolute;
+    right: 9.9vw;
+    display: flex;
+    justify-content: center;
+}
+ .navigation>div{
+    height: 100%;
+    font-size: 1.45vw;
+    width:10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.navigation>div:hover{
+    transition: 0.5s;
+    font-size: 1.65vw;
+    background-color: #2E2E39;
+}
+
+.login{
+    font-size: 1.1vw;
+    font-family:UrbanistBold;
+    top: 32.5%;
+    position:absolute;
+    right: 4vh;
+    height:2.34vw;
+    width: 5.98vw;
+    background-color:#0D99FF;
+    border-radius: 45.36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: #dfdfdf 2px solid;
+}
+
+.login:hover{
+    background-color: #0086e6;
+    transition: 1s;
+}
+
+.login:active{
+    box-shadow: inset 0px 0px 50px midnightblue;
+    transition: 0.1s;
+}
+
+

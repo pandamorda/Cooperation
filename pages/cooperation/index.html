@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <title>Initiative group - Співпраця</title>
+    <link href="./cooperation.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <a href="/index.html" class="logo-link">
+          <figure>
+            <img
+              class="logo-icon"
+              src="/src/images/logo_icon.jpeg"
+              alt="Logo picture."
+            />
+            <figcaption class="logo-text">
+              <span>Initiative Group</span>
+            </figcaption>
+          </figure>
+        </a>
+
+        <nav>
+          <ul>
+            <li class="nav-btn clicable">
+              <a href="#">Головна</a>
+            </li>
+            <li class="nav-btn clicable">
+              <a href="#">Проєкти</a>
+            </li>
+            <li class="nav-btn clicable">
+              <a href="#">Навчання</a>
+            </li>
+            <li class="nav-btn clicable">
+              <a href="#">Співпраця</a>
+            </li>
+            <li class="nav-btn clicable">
+              <a href="#">Про нас</a>
+            </li>
+            <li class="nav-btn profile class">
+              <a href="#" class="clicable">Профіль</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div class="content">
+          <section class="instruction">
+            <h2>Інструкція</h2>
+            <p>
+              Для того щоб розпочати з нами співпрацю, необхідно (і достатньо):
+            </p>
+            <ol>
+              <li>Завантажити резюме</li>
+              <li>
+                Пройти тести:
+                <ol>
+                  <li>Тест з англійської</li>
+                  <li>Soft skills</li>
+                  <li>Технічний тест</li>
+                </ol>
+              </li>
+            </ol>
+            <p>
+              Кожен тест є тестом з варіантами (?) відповіді та обмеженням у
+              часі (1:30 години на кожен), по завершенню усіх дій може
+              знадобитися перевірка адміністрації, після чого буде усна
+              співбесіда. Wish you a good лук!
+            </p>
+          </section>
+
+          <section class="upload">
+            <div class="upload-title">
+              <h2>Завантажити резюме:</h2>
+            </div>
+            <div class="upload-main">
+              <form
+                id="form-resume"
+                action="#"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <input id="upload-resume" type="file" accept=".doc,.docx" />
+
+                <label class="alt-upload clicable" for="upload-resume">
+                  <figure>
+                    <img
+                      src="/src/images/cooperation/file_icon.png"
+                      alt="File icon blue."
+                    />
+                    <figcaption class="upload-text">
+                      Натисніть, щоб додати Ваш документ
+                    </figcaption>
+                  </figure>
+                </label>
+                <span id="upload-status">
+                  &#9989; Все добре / &#10071; Потрібно довантаження
+                </span>
+              </form>
+            </div>
+          </section>
+
+          <section class="console">
+            <div class="console-display">
+              <span>
+                InitiativeGroup, site v2.0 (v2.0:a1, Aug 22 2022, 15:28:59)
+                [HTML-CSS & JS (spec.)] on linux
+                <br />Last login: Thu Jul d SS:mm:ss on ttys000 <br /><span
+                  class="cnl-bold"
+                  >~/user&gt;</span
+                >
+                <span class="cnl-yellow"> bookMeeting()</span>
+                <br />
+                Want to continue? Enter the 'Y' (<u>Y</u>es) + &lt;Enter&gt;
+              </span>
+            </div>
+
+            <div class="console-status">
+              Status:<br />
+              <span class="cnl-green">--- Tests are available! ---</span>
+            </div>
+
+            <div class="console-footer">
+              <span class="cnl-yellow">Hint: Press enter</span>
+              <a href="#" class="start-test clicable">Розпочати тестування</a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

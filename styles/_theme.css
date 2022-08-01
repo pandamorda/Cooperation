@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+
+:root {
+  --black: #120d14;
+  --cyan: #0d99ff;
+  --grey: #25252d;
+  --grey-l0: #3a3a45;
+  --grey-l1: #686a77;
+  --grey-l2: #b7c2d4;
+  --pink: #c3b1bd;
+
+  --text-color-black: var(--black);
+  --text-color-green: #4aaf48;
+  --text-color-grey: #89919f;
+  --text-color-pink: var(--pink);
+  --text-color-white: #fff;
+  --text-color-yellow: #ffc120;
+
+  --vw1px: min(0.052vw, 1px);
+  --vw4px: calc(4 * var(--vw1px));
+
+  --border-small: var(--vw1px) solid var(--grey-l1);
+
+  --border-radius-high: min(2.6vw, 50px);
+  --border-radius-medium: min(1.3vw, 25px);
+  --border-radius-small: min(0.26vw, 5px);
+
+  --box-shadow-color: #120d1444;
+  --box-shadow-medium: 0 var(--vw4px) var(--vw4px) var(--box-shadow-color);
+  --box-shadow-small: 0 var(--vw1px) var(--box-shadow-color);
+  --text-shadow: var(--vw1px) var(--vw1px) var(--vw4px) var(--black);
+
+  --active-filter: brightness(120%);
+  --hover-filter: brightness(110%);
+}

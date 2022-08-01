@@ -1,0 +1,55 @@
+@import url("./_layout.css");
+@import url("./_form.css");
+@import url("./_media.css");
+
+/* Anchor */
+.anchor {
+  scroll-margin-top: var(--header-height);
+}
+
+/* Headers / lists */
+h1,
+h2 {
+  font-size: 1.5em;
+}
+
+h1 {
+  margin-bottom: var(--section-bottom-margin);
+}
+
+h2 {
+  margin-bottom: min(1.04vw, 20px);
+}
+
+section ol {
+  list-style-type: decimal;
+}
+
+section ol ol {
+  list-style-type: lower-alpha;
+}
+
+section li {
+  margin-left: var(--content-par-indent);
+}
+
+/* Elements hover / active */
+.clicable:hover {
+  filter: var(--hover-filter);
+}
+.clicable:active {
+  filter: var(--active-filter);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--grey);
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: var(--black);
+}

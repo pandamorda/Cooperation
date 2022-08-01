@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+}
+
+pre {
+  font-family: inherit;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  list-style-position: inside;
+}
+
+ul,
+ol,
+figure,
+input,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+iframe {
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+form {
+  margin: 0;
+}
+
+div,
+section,
+ul,
+ol,
+li,
+button,
+a,
+fieldset,
+legend,
+input,
+span {
+  box-sizing: border-box;
+}
+
+a,
+button,
+input {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+legend,
+fieldset,
+figure {
+  padding-block: 0;
+  padding-inline: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  border: none;
+}
+
+input {
+  appearance: none;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: center;
+  line-height: 0.75;
+  margin: 0;
+  margin-block: 0;
+}
