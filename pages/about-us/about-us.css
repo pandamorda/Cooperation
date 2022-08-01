@@ -2,11 +2,13 @@
 
 .preview {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 .video {
+    flex-grow: 1;
     border-radius: 1em;
-    margin-right: 10%;
+    margin-right: min(5.2vw, 100px);
+    height: min(15.625vw, 300px);
+    min-width: min(26vw, 500px);
 }
