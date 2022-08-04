@@ -17,17 +17,6 @@ margin-top: -8vh;
     height: 100%;
 }
 
-/* #content div{
-    transition: all .2s ease-in-out;
-    transform: translate3d(0px, 30px, 0);
-    opacity: 0;
-}
-
-#content div:active{
-    transform: translate3d(0px, 0, 0);
-    opacity: 1;
-} */
-
 .textBox{
     background-color: #34343F;
     border-radius: 25px;
