@@ -1,0 +1,31 @@
+@import url("../../styles/style.css");
+.study-description1{
+    width: min(61vw, 1167px);
+}
+.study-news1{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    flex-shrink: 1;
+}
+.study-link{
+    color:var(--text-color-pink);
+}
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:min(2.08vw, 40px) ;
+    /*height: min();*/
+}
+.photo-profile{
+    border-radius: var(--border-radius-high);
+    width: min(12vw, 232px);
+}
+.content{
+    flex-direction: row;
+    flex-content: space-between;
+}
+.link-study-page{
+    font-size: 2vw;
+}

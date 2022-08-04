@@ -46,40 +46,65 @@
         </header>
 
         <main>
-            <div class="main-profile">
-                <img src="../../src/images/profile/PROF_1.jpg" class="img_3">
-                <p>Ім'я:</p>
-                <p>Призвіще:</p>
-                <figure>
-                    <img src="../../src/images/profile/githab.png" class="githab">
-                    <img src="../../src/images/profile/likedin.png" class="linkedin">
-                </figure>
-                <button class="button-summary">Резюме</button>
+            <div class="content">
+                <section class="main-profile">
+                    <img src="../../src/images/profile/PROF_1.jpg" class="photo-profile">
+                    <div class="text-profile">
+                    <p>Ім'я:</p>
+                    <p>Панда</p>
+                    <p>Прізвіще:</p>
+                    <p>Андріївна</p>
+                    <p>Пошта:</p>
+                    <p>panda@gmail.com</p>
+                    </div>
+                    <figure class="my-project">
+                        <img src="../../src/images/profile/githab.png">
+                        <img src="../../src/images/profile/likedin.png">
+                    </figure>
+                    <!--
+                    <form enctype="multipart/form-data" method="post">
+                        <img src="/src/images/cooperation/file_icon.png"><input type="file" name="f">
+                            <input type="submit" value="Отправить"></img>
+                    </form>
+                    -->
+                </section>
+
+                <section class="process">
+                    <div>
+                    <h2 class="title">Сайт для продаж</h2>
+                        <div class="scroll">
+                            <img class="project-photo" src="../../src/images/profile/img.png">
+                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae elit a orci consequat posuere
+                                sed vitae tortor. Maecenas eget vehicula libero, sed aliquam quam. Nam facilisis congue neque
+                                placerat aliquet.Maecenas eget vehicula libero, sed aliquam quam. Nam facilisis congue neque
+                                placerat aliquet.Maecenas eget vehicula libero, sed aliquam quam. Nam facilisis congue neque
+                                placerat aliquet.</p>
+                        </div>
+                        <figure class="progress-container">
+                            <progress id="test-progress" value="23.5" max="100"></progress>
+<!--                            <label class="progress-text" for="test-progress">23.5%</label>-->
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="setting-profile">
+                    <h2>Налаштування</h2>
+                        <a class="text-setting">Змінити ім'я / призвіще</a>
+                        <a class="text-setting">Змінити пароль</a>
+                        <a class="text-setting">Змінити мову сайту</a>
+                        <a class="text-setting">Змінити електронну почту</a>
+                        <a class="text-setting">Редагувати резюме</a>
+
+                </section>
+
+                <section class="questionnaire">
+                    <h2>Анкета</h2>
+                     
+
+                </section>
+
             </div>
 
-            <div class="process">
-                <p class="title">Сайт для продаж типу</p>
-                <div class="progress">
-                    <span></span>
-                </div>
-            </div>
-
-            <div class="setting-profile">
-                <p class="title">Налаштування</p>
-                <p class="dataBlock_2">Змінити ім'я / призвіще</p>
-                <p class="dataBlock_2">Змінити пароль</p>
-                <p class="dataBlock_2">Змінити мову сайту</p>
-                <p class="dataBlock_2">Змінити електронну почту</p>
-                <p class="dataBlock_2">Редагувати резюме</p>
-            </div>
-
-            <div class="questionnaire">
-                <p>Анкета</p>
-
-                <input id="input-task">
-                <button id="add-task-button">ADD TASK</button>
-                <ul id="task-list"></ul>
-            </div>
     </main>
 
     <footer>
@@ -87,6 +112,6 @@
     </footer>
 
     </div>
-    <script src="to-do-list.js"></script>
+
     </body>
 </html>

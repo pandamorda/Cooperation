@@ -1,131 +1,119 @@
 @import url("../../styles/style.css");
 
-
-
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:min(2.08vw, 40px) ;
+    /*height: min();*/
+}
 .main-profile {
-    /*background: var();*/
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
-    border-radius: var(--border-radius-medium);
-    border: 1px solid #B7C2D4;
+    background:  var(--grey-l0);
+    box-shadow: var(--box-shadow-medium);
     color: var(--text-color-white);
-    width:22vw;
-    height: 26vh;
-    position: relative;
+}
+
+.photo-profile{
+    border-radius: var(--border-radius-medium);
+    float:left;
+    align-self: flex-start;
+    min-font-size: 2vw 2vh;
+    width: min(10vw, 200px);
+}
+.text-profile{
+    font-size: 1vw;
+}
+
+.main-profile .my-project{
+    clear: both;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    background:  var(--grey-l3);
+    flex-direction: row-reverse;
+    /*justify-content: space-between;*/
+    align-items: flex-end;
+    padding-bottom: 10vh;
+    height: min(4vw, 78px);
 }
 
-.main-profile .img_3 {
-    display: block;
-    float: left;
-    border-radius: var(--border-radius-high);
-    min-height: 20vh;
-    max-height: 40vh;
 
-}
-
-.main-profile p {
-    width: 40%;
-    height: 10%;
-    right: 7%;
-
-}
-.githab{
-
-
-}
 .main-profile .button-summary {
     clear: both;
     background:  var(--grey);
-    color: white;
-    width: 5vw;
-    height: 3vh;
-    border: 1px solid white;
+    color: var(--text-color-white);
     min-height:3vh ;
     border-radius: var(--border-radius-medium);
+    align-self: flex-end;
 }
 
 .setting-profile {
-    background: var(--grey-l3);
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
-    border-radius: var(--border-radius-medium);
-    border: 1px solid #B7C2D4;
-    color: azure;
-    border: outset 2px white;
-    width:22vw;
-    height: 40vh;
+    background: var(--grey-l0);
+    box-shadow: var(--box-shadow-medium);
+    color: var(--text-color-white);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    left: 15%;
-    top: 110px;
     text-align: center;
 }
 
-.setting-profile .dataBlock_2 {
-    position: relative;
-
-    width: 100%;
-    height: 30px;
-}
-
-.setting-profile .title {
-    position: relative;
-    width: 100%;
+.text-setting{
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 5vh;
+    align-content: space-between;
 }
 .process {
-    background: var(--grey-l3);
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
-    border-radius: var(--border-radius-medium);
-    border: 1px solid #B7C2D4;
+    background: var(--grey-l0);
+    box-shadow: var(--box-shadow-medium);
+    border: 0px solid var(--grey-l2);
     color: var(--text-color-white);
-    max-width: 35%;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+.process .scroll {
+    height: 25vh;
+    width: 100%;
+    overflow-x:hidden;  /*для горизонтального*/
+}
+
+.process .progress-container #test-progress{
+    clear: both;
+    width: 100%;
+    position: relative;
+    border-radius: 0;
+}
+.description{
+    font-size: 2vh;
+}
+.project-photo{
     height: 20vh;
-    position: relative;
+    float:left;
 }
 
-.process .title {
-    float: right;
-    position: relative;
-    right: 5%;
-}
-.progress{
-    width: 24vw;
-    height:3vh;
-    background-color: #4aaf48;
-    border-radius: 0px 0px 25px 25px;
-    border: 3px solid #4aaf48;
-    position: relative;
-    top: 85%;
-}
 
-.process .progress span{
-    display: block;
-    height:100%;
-    width: 53.24%;
-    background-color: #0d99ff;
-    position:relative;
-    border-radius: 55px 100px 0px 55px;
-}
+
+
+
+/*.process .progress span{*/
+/*    display: block;*/
+/*    background-color: #0d99ff;*/
+/*    position:relative;*/
+/*    border-radius: 55px 100px 0px 55px;*/
+/*}*/
 .questionnaire {
-    background: #34343F;
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    border: 1px solid #B7C2D4;
-    color: azure;
-    max-width: 35%;
-    height: 40vh;
-    position: relative;
+    background: var(--grey-l0);
+    box-shadow: var(--box-shadow-medium);
+    color: var(--text-color-white);
+    display: flex;
 }
+.quest-photo{
+    height: min(4vw, 78px);
+    display: flex;
+    flex-wrap:wrap;
+    align-content: space-between;
+    flex-direction: column;
+    flex-basis: 6em;
+    flex-grow: initial;
 
-.questionnaire p {
-    text-align: center;
-}
-/*Для зачеркивания текста*/
-input[type=checkbox]:checked + .task {
-    text-decoration: line-through;
 }
 footer{
     background-color: var(--black);
