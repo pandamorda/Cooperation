@@ -1,23 +1,47 @@
 @import url("/styles/style.css");
 
+.content{
+margin-top: -8vh;
+}
 .contentBox{
     align-items: flex-end;
     display: flex;
     flex-direction: row;
-    margin: 2vw 0 0 0;
-}
+    height: 28vh;
+    margin: 4vh 0 0vh 0;
 
+}
 .contentBox > img{
     border-radius: 25px;
-    box-shadow:0px 4px 4px black;
+    box-shadow:0px 4px 25px #000000;
+    height: 100%;
 }
+
+/* #content div{
+    transition: all .2s ease-in-out;
+    transform: translate3d(0px, 30px, 0);
+    opacity: 0;
+}
+
+#content div:active{
+    transform: translate3d(0px, 0, 0);
+    opacity: 1;
+} */
 
 .textBox{
-
-    padding: 2vw 2vw 2vw 2vw;
     background-color: #34343F;
-    border: 2px solid  #3434ee;
-    border-radius: 20px;
-    box-shadow:0px 4px 4px black;
-    margin: 0 2vw 0 2vw;    
+    border-radius: 25px;
+    box-shadow:0px 4px 20px #000000;
+    height: 80%;
+    margin: 0 2vw 0 2vw;  
+    overflow-y: scroll;
+    padding: 20px 1.65vw 20px 1.65vw;
 }
+
+.textBox::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .textBox::-moz-scrollbar {
+    width: 0px;
+  }
