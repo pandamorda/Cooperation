@@ -2,7 +2,7 @@
 
 <a id="top"></a>
 
-Product of Initiative Group.
+product of Initiative Group.
 Slide "Cooperation".
 
 ![favicon](src/assets/images/favicon.ico)
@@ -23,7 +23,7 @@ Slide "Cooperation".
 
 <a id="br-expl"></a>
 
-Page "Cooperation" (Співпраця) of the Initiative Group's site.
+page "Cooperation" (Співпраця) of the Initiative Group's site.
 
 ## Product description
 
@@ -51,9 +51,9 @@ See the page ['projects' (ua)](https://www.initiative-group.out-site.com/project
 
 <a id="lic-and-cop"></a>
 
-[![License: GNU GPL v3.0](https://img.shields.io/badge/GNU%20GPL-v3.0-red)](http://choosealicense.com/licenses/gpl-3.0/)
+[![License: GNU GpL v3.0](https://img.shields.io/badge/GNU%20GpL-v3.0-red)](http://choosealicense.com/licenses/gpl-3.0/)
 
-Is licensed under the [GNU GPL v3.0](http://choosealicense.com/licenses/gpl-3.0/).
+Is licensed under the [GNU GpL v3.0](http://choosealicense.com/licenses/gpl-3.0/).
 
 ---
 

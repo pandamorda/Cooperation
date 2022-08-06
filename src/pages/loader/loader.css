@@ -1,0 +1,125 @@
+@keyframes dots{
+    from {margin-top: 0vw;}
+    50% {margin-top: -0.5vw;}
+    100% {margin-top: 0vw;}
+}
+
+@keyframes let_opacity{
+    From {opacity: 0}
+    75% {opacity: 0}
+    100%{opacity: 1}
+}
+
+@keyframes let_move{
+    from {margin-left: 1vw} to {margin-left: 0vw;}
+}
+
+@keyframes bracket{
+    from {margin-left: -25vw;} 
+    10% {margin-left: -25vw;}
+    25% {margin-left: -22vw;}
+    50% {margin-left: -15.5vw;}
+    75% {margin-left: -7vw;}
+    100% {margin-left: 6vw;}
+}
+/*Для того, чтобы страничка нормально работала, оставлен размер шрифта в vw*/
+body{
+    font-family: consolas, Helvetica, sans-serif;
+
+    background: url("@images/loader/background.jpg");
+}
+
+.loader{
+    position: relative;
+    top: 20vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 24.4375vw;
+    height: 4.166vw;
+    margin-top: 3vw;
+
+    color: var(--text-color-white);
+    font-size: 3.1vw;
+    letter-spacing: 0.52vw;
+
+    animation: txt-appear 3.2s;
+}
+
+.figure_1{
+    display: inline-block;
+
+    color: var(--text-color-white);
+    font-size: 8vw;
+}
+
+.figure_2{
+    position: relative;
+
+    display: inline-block;
+    margin-left: 6vw;
+
+    color: var(--text-color-white);
+    font-size: 8vw;
+
+    animation: bracket 4s .3s;
+}
+
+.text span:nth-child(1){
+    position: relative;
+
+    animation: let_move 1.5s .3s;
+    animation: let_opacity 1.8s; 
+}
+.text span:nth-child(2) {
+    animation: let_opacity 2.1s, let_move 1.5s .6s; 
+}
+.text span:nth-child(3) {
+    animation: let_opacity 2.4s, let_move 1.5s .9s; 
+}
+.text span:nth-child(4){
+    animation: let_opacity 2.7s,  let_move 1.5s 1.2s; 
+}
+.text span:nth-child(5) {
+    animation: let_opacity 3s, let_move 1.5s 1.5s; 
+}
+.text span:nth-child(6){
+    animation: let_opacity 3.3s, let_move 1.5s 1.8s;; 
+}
+.text span:nth-child(7){
+    animation: let_opacity 3.6s, let_move 1.5s 2.1s;; 
+}
+.text span:nth-child(8){
+    animation: let_opacity 3.9s, let_move 1.5s 2.4s; 
+}
+.text span:nth-child(9){
+    animation: let_opacity 4.2s, let_move 1.5s 2.7s;
+}
+.text span:nth-child(10){
+    animation: let_opacity 4.5s, let_move 1.5s 3s;
+}
+.text span:nth-child(11){
+    animation: let_opacity 4.8s, let_move 1.5s 3.3s; 
+}
+.text span:nth-child(12){
+    position: relative;
+
+    animation: dots .8s infinite 3.2s, let_opacity 5.1s, let_move 1.5s 3.6s;
+}
+.text span:nth-child(13){ 
+    position: relative;    
+
+    animation: dots .8s infinite 3.4s, let_opacity 5.4s, let_move 1.5s 3.9s;
+}
+.text span:nth-child(14){
+    position: relative;
+
+    animation: dots .8s infinite 3.6s, let_opacity 5.7s, let_move 1.5s 4.2s; 
+}
