@@ -1,0 +1,136 @@
+@import url(/styles/style.css);
+
+body{
+    background-color: var(--grey-l0);
+    background: url("/src/images/loader/loader_bg.jpg");
+    font-family: Consolas, Menlo, Monaco, monospace;
+}
+
+.loader{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top:20vw;
+}
+
+.text {
+    animation: txt-appear 3.2s;
+    color: white;
+    display: flex;
+    flex-direction:row ;
+    font-size: 3.1vw;
+    height: 4.166vw;
+    letter-spacing: 0.520833vw;
+    margin: 3.2vw 0 0 0;
+    width: 24.4375vw;
+}
+
+
+.figure_1{
+    color: white;
+    display: inline-block;
+    font-size: 8vw;
+}
+
+.figure_2{
+    animation: skobka 4s .3s;
+    color: white;
+    display: inline-block;
+    font-size: 8vw;
+    margin-left: 6vw;
+    position: relative;
+}
+
+#dot_3{
+    position: relative;
+    animation: dots .8s infinite 3.6s, let_opacity 5.7s, let_move 1.5s 4.2s;
+  
+}
+#dot_2{ 
+    position: relative;    
+    animation: dots .8s infinite 3.4s, let_opacity 5.4s, let_move 1.5s 3.9s;
+}
+#dot_1{
+    position: relative;
+    animation: dots .8s infinite 3.2s, let_opacity 5.1s, let_move 1.5s 3.6s;
+}
+#G{
+    animation: let_opacity 4.8s, let_move 1.5s 3.3s; 
+}
+#N_2{
+    animation: let_opacity 4.5s, let_move 1.5s 3s;
+}
+#I{
+    animation: let_opacity 4.2s, let_move 1.5s 2.7s;
+}
+#D_2{
+    animation: let_opacity 3.9s, let_move 1.5s 2.4s; 
+}
+#A{
+    animation: let_opacity 3.6s, let_move 1.5s 2.1s;; 
+}
+#O_2{
+    animation: let_opacity 3.3s, let_move 1.5s 1.8s;; 
+}
+#L {
+    animation: let_opacity 3s, let_move 1.5s 1.5s; 
+}
+#N{
+    animation: let_opacity 2.7s,  let_move 1.5s 1.2s; 
+}
+#W {
+    animation: let_opacity 2.4s, let_move 1.5s .9s; 
+}
+#O {
+    animation: let_opacity 2.1s, let_move 1.5s .6s; 
+}
+    
+#D{
+    position: relative;
+    animation: let_move 1.5s .3s;
+    animation: let_opacity 1.8s; 
+}
+
+@keyframes dots{
+    from {margin-top: 0vw;}
+    10% {margin-top: -0.1vw;}
+    15% {margin-top: -0.15vw;}
+    20% {margin-top: -0.2vw;}
+    25% {margin-top: -0.25vw;}
+    30% {margin-top: -0.3vw;}
+    30% {margin-top: -0.35vw;}
+    40% {margin-top: -0.4vw;}
+    45% {margin-top: -0.45vw;}
+    50% {margin-top: -0.5vw;}
+    55% {margin-top: -0.45vw;}
+    60% {margin-top: -0.4vw;}
+    65% {margin-top: -0.35vw;}
+    70% {margin-top: -0.3vw;}
+    75% {margin-top: -0.25vw;}
+    80% {margin-top: -0.2vw;}
+    85% {margin-top: -0.15vw;}
+    90% {margin-top: -0.1vw;}
+    95% {margin-top: -0.05vw;} 
+    100% {margin-top: 0vw;}
+}
+
+@keyframes let_opacity{
+    From {opacity: 0}
+    75% {opacity: 0}
+    100%{opacity: 1}
+    
+}
+
+@keyframes let_move{
+    from {margin-left: 1vw} to {margin-left: 0vw;}
+}
+
+@keyframes skobka{
+    from {margin-left: -25vw;} 
+    10% {margin-left: -25vw;}
+    25% {margin-left: -22vw;}
+    50% {margin-left: -15.5vw;}
+    75% {margin-left: -7vw;}
+    100% {margin-left: 6vw;}
+}
