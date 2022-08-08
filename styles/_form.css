@@ -175,7 +175,7 @@ button[type="submit"] {
   color: inherit;
 }
 
-/* Progress bar */
+/* progress bar */
 progress {
   border-radius: var(--border-radius-medium);
 }
