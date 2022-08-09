@@ -1,0 +1,38 @@
+@import url("/styles/style.css");
+
+.stages{
+    width: min(12vw, 230px);
+    padding: 3% 0;
+    font-size: large;
+}
+
+.content {
+    display: flex;
+}
+
+.content img {
+    border-radius: var(--border-radius-medium);
+    width: min(15.625vw, 250px);
+    height: min(10.41vw, 200px);
+    margin-bottom: 10%;
+}
+
+.left-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    margin-right: 5%;
+}
+.stage {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+section ul li {
+    margin-left: 10%;
+}
+
+h2, h3 , p{
+    margin-bottom: 5%;
+}

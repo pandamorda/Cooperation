@@ -1,0 +1,25 @@
+@import url("/styles/style.css");
+
+.projects{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5%;
+    margin: 5%;
+    width: min(18.22vw, 350px);
+}
+
+section img{
+    border-radius: var(--border-radius-medium);
+}
+
+.white-box {
+    background-color: var(--grey-l1);
+}
