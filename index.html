@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link href = "preview.css" rel = "stylesheet" >
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome!</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="./index.js"></script>
+  <link href="preview.css" rel="stylesheet">
+
+  <title>Welcome!</title>
 </head>
+
 <body>
-<div class = "locate">
-  <div class = "logo">
-    <img  class = "size-image" src = "/src/images/logo_icon.jpeg" alt = "logo">
-  </div>
-  <div class = "txt-box">
-    <h1 class = "head">SAD BUT PROGRAMMER</h1>  
-    <div class="container">
-        Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et 
-        dolore magna aliqua. Ut enim ad minim veniam, 
-        quis nostrud exercitation ullamco laboris...
+  <div class="wrapper">
+    <div class="auth-menu">
+      <div id="cross" class="auth-btn clicable hidden"></div>
+      <a href="#" id="login-btn" class="auth-btn clicable user-unauth hidden">Login</a>
+      <a href="#" id="sign-btn" class="auth-btn clicable user-unauth hidden">Sign Up</a>
+      <a href="#" id="exit-btn" class="auth-btn clicable user-auth hidden">Exit</a>
+      <a href="#" id="profile-btn" class="auth-btn clicable user-auth hidden">Profile</a>
+      <a href="#" id="main-btn" class="auth-btn clicable"></a>
+    </div>
+
+    <div class="preview-main">
+      <span class="logo">
+        <img src="/src/images/logo_icon.jpeg" alt="logo">
+      </span>
+
+      <div class="preview-text">
+        <h1>Sad But Programmer</h1>
+        <p>
+          Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris...
+        </p>
+      </div>
+
+      <span class="logo-text">Initiative Group</span>
+
+      <a class="continue-btn">Продовжити</a>
     </div>
   </div>
-  
-    <div class = "txt-logo">INITIATIVE GROUP</div>
-  <div>
-    <a class = "continue-button"><p class = "txt">Продовжити</p></a>
-  </div>
-</div>
-  <a class = "login-button"><p class = "txt">Login</p></a>
-
 </body>
+
 </html>
