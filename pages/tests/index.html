@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <link href="./tests.css" rel="stylesheet" />
-    <script src="codemirror-5.31.0/lib/codemirror.js"></script>
+
+    <script src="../_mockdata.js"></script>
+    <script src="./_constants.js"></script>
+    <script src="./index.js"></script>
+
     <title>Initiative group - Тести</title>
 </head>
 
@@ -21,8 +25,8 @@
             </a>
 
             <figure class="progress-container">
-                <progress id="test-progress" value="25" max="100"></progress>
-                <label class="progress-text" for="test-progress">Ви пройшли 25% тесту</label>
+                <progress id="test-progress" max="100"></progress>
+                <label id="test-progress-label" for="test-progress"></label>
             </figure>
         </header>
 
@@ -149,10 +153,11 @@
 
                         <button class="clicable" type="submit">Завершити</button>
                     </section>
+
                     <section class="form-nav">
-                        <div class="nav-container">
-                            <span id="test-time">30:00</span>
-                            <ul class="nav">
+                        <div class="nav">
+                            <span id="nav-timer">30:00</span>
+                            <ul id="questions-nav">
                                 <li><a href="#q1"></a></li>
                                 <li><a href="#q2"></a></li>
                                 <li><a href="#q3"></a></li>
