@@ -38,3 +38,21 @@
 .txt-box::-moz-scrollbar {
     width: 0;
 }
+
+.active_l{
+    animation: appear 2.5s;
+}
+
+@keyframes appear{
+    from{transform: translate(-6vw, 0px);}
+    to{transform: translate(0px, 0px);}
+}
+
+.active_r{
+    animation: appear_r 2.5s;
+}
+
+@keyframes appear_r{
+    from{transform: translate(6vw, 0px);}
+    to{transform: translate(0px, 0px);}
+}
