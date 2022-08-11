@@ -24,8 +24,36 @@ const getUserData = () => promisifyData({
     },
     requiredTests: [
         "Технічний тест",
-        "Тест з англійськой мови",
+        "Тест з англійської мови",
         "Soft Skills (психологічний тест)",
     ],
     lastLogin: new Date()
+});
+
+const getTestData = () => promisifyData({
+    name: 'English Test',
+    timeLimit: 65000,
+    questions: [
+        {
+            type: 'multi',
+            text: 'Some question 1?',
+            correctAnswers: ['answer1'],
+            answers: ['answer1', 'answer2', 'answer3']
+        },
+        {
+            type: 'single',
+            text: 'Some question 2?',
+            correctAnswers: ['answer1'],
+            answers: ['answer1', 'answer2', 'answer3']
+        },
+        {
+            type: 'multi-img',
+            text: 'Some question 2?',
+            correctAnswers: ['answer1'],
+            answers: [
+                { text: 'answer1', src: '/src/images/logo_icon.jpeg' },
+                { text: 'answer2', src: '/src/images/logo_icon.jpeg' },
+                { text: 'answer3', src: '/src/images/logo_icon.jpeg' }]
+        },
+    ]
 });
