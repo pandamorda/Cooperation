@@ -1,0 +1,24 @@
+@import url("/styles/style.css");
+
+.study {
+    background-color: inherit;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+.card {
+    display: flex;
+    --card-margin: min(3.91vw, 75px);
+    margin-bottom: var(--card-margin);
+}
+
+.card-img {
+    --img-size: min(11.98vw, 230px);
+    width: var(--img-size);
+    height: var(--img-size);
+
+    border-radius: var(--border-radius-medium);
+    margin-right: var(--card-margin);
+
+}
