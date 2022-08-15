@@ -1,6 +1,6 @@
 "use strict";
 
-const REQUEST_RESPONSE_TIME = 500;
+const REQUEST_RESPONSE_TIME = 0;
 
 const promisifyData = (data = {}) => new Promise((fulfill) => {
     setTimeout(
@@ -30,30 +30,51 @@ const getUserData = () => promisifyData({
     lastLogin: new Date()
 });
 
+const testTypes = {
+    multi: 'multi',
+    single: 'single',
+    multiImg: 'multi-img',
+    match: 'match'
+}
+
+const getQuestionTypesData = () => promisifyData(testTypes);
+
 const getTestData = () => promisifyData({
     name: 'English Test',
-    timeLimit: 65000,
+    timeLimit: 18e5,
     questions: [
         {
-            type: 'multi',
+            type: testTypes.multi,
             text: 'Some question 1?',
-            correctAnswers: ['answer1'],
+            correctAnswers: [0],
             answers: ['answer1', 'answer2', 'answer3']
         },
         {
-            type: 'single',
+            type: testTypes.single,
             text: 'Some question 2?',
-            correctAnswers: ['answer1'],
+            correctAnswers: [1],
             answers: ['answer1', 'answer2', 'answer3']
         },
         {
-            type: 'multi-img',
-            text: 'Some question 2?',
-            correctAnswers: ['answer1'],
+            type: testTypes.multiImg,
+            text: 'Some question 3?',
+            correctAnswers: [1, 2],
             answers: [
                 { text: 'answer1', src: '/src/images/logo_icon.jpeg' },
                 { text: 'answer2', src: '/src/images/logo_icon.jpeg' },
                 { text: 'answer3', src: '/src/images/logo_icon.jpeg' }]
         },
+        {
+            type: testTypes.match,
+            text: 'Some question 4?',
+            correctAnswers: [0, 1, 2],
+            answers: [
+                { definition: 'def1', match: 'match1' },
+                { definition: 'def2', match: 'match2' },
+                { definition: 'def3', match: 'match3' },
+            ]
+        }
     ]
 });
+
+
