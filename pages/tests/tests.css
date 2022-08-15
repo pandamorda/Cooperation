@@ -28,16 +28,18 @@ header {
   top: 0;
   width: 100%;
   height: 100%;
+
+  cursor: default;
 }
 
 /* Main */
 
 /* Form */
-.resume-form {
+#resume-form {
   display: flex;
 }
 
-.resume-form section {
+#resume-form section {
   margin: 0;
 }
 
@@ -88,14 +90,13 @@ section.form-nav {
 #questions-nav {
   flex-grow: 0;
   display: grid;
-  grid-gap: min(0.78vw, 15px);
+  grid-gap: min(0.49vw, 10px);
 
-  list-style: decimal;
-  list-style-position: inside;
+  list-style: none;
   font-size: 0.5em;
 
   --nav-li-size: min(1.56vw, 30px);
-  grid-template-rows: repeat(auto-fill, minmax(var(--nav-li-size), 1fr));
+  grid-auto-rows: var(--nav-li-size);
   grid-template-columns: repeat(auto-fill, var(--nav-li-size));
 }
 
@@ -111,9 +112,6 @@ section.form-nav {
   color: var(--text-color-black);
 }
 
-.nav li::marker {
-  content: counter(list-item);
-}
 
 #questions-nav a {
   position: absolute;
