@@ -140,7 +140,8 @@ main:after {
 }
 
 /* Content section w1240px */
-section {
+section,
+.section-like {
   padding: var(--section-padding);
 
   border-radius: var(--border-radius-medium);
@@ -148,7 +149,7 @@ section {
   box-shadow: var(--box-shadow-medium);
 }
 
-section > div {
+section>div {
   padding: 0 var(--section-padding);
 }
 

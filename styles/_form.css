@@ -149,6 +149,7 @@ label {
 
 .matches input {
   width: var(--input-small-size);
+  text-align: center;
 }
 
 .match-text {
@@ -173,6 +174,13 @@ button[type="submit"] {
 
   font-size: var(--content-font-size);
   color: inherit;
+}
+
+/* Inputs disabled */
+input:disabled,
+textarea:disabled,
+button:disabled {
+  filter: brightness(80%);
 }
 
 /* Progress bar */
