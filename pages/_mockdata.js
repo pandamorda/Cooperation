@@ -34,7 +34,8 @@ const testTypes = {
     multi: 'multi',
     single: 'single',
     multiImg: 'multi-img',
-    match: 'match'
+    match: 'match',
+    code: 'code',
 }
 
 const getQuestionTypesData = () => promisifyData(testTypes);
@@ -73,7 +74,16 @@ const getTestData = () => promisifyData({
                 { definition: 'def2', match: 'match2' },
                 { definition: 'def3', match: 'match3' },
             ]
-        }
+        },
+        {
+            type: testTypes.code,
+            text: 'Some question 5? (Press \'Ctrl + Enter\' to run)',
+            mode: 'javascript',
+            inputsInitialValues: [`const main = () => {const a=1; const b=2; return a+b;}\nconsole.log(main(), 3);\nconsole.log(main(), 'abc');`],
+            correctAnswers: [
+                { group: 'function', tests: [{ args: [], result: 3 }], regex: /(.+)main(.+)\{(?<function>(.+))\}/ }
+            ],
+        },
     ]
 });
 
