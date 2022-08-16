@@ -1,10 +1,24 @@
 @import url("/styles/style.css");
 
+@keyframes appear_r{
+    from{transform: translate(6vw, 0vw);}
+    to{transform: translate(0vw, 0vw);}
+}
+@keyframes appear{
+    from{transform: translate(-6vw, 0vw);}
+    to{transform: translate(0vw, 0vw);}
+}
+
+section{
+    padding: 1.5vw;
+}
+
 .content {
     margin-top: -4.5vw;
 }
 
 .content-box {
+    border: .2vw solid var(--text-color-white);
     align-items: flex-end;
     display: flex;
     flex-direction: row;
@@ -14,21 +28,20 @@
 
 .content-img {
     border-radius: 1.3vw;
-    box-shadow: 0px var(--vw4px) 25px var(--black);
-
-    width: min(15.75vw, 300px);
-    height: min(15.75vw, 300px);
+    box-shadow: 0vw var(--vw4px) 1.3vw var(--black);
+    width: min(17vw, 350px);
+    height: min(17vw, 350px);
 }
 
 .txt-box {
+    height: 90%;
     color: var(--pink);
     background-color: var(--grey-l0);
     border-radius: 1.3vw;
-    box-shadow: 0px var(--vw4px) 20px var(--black);
-    height: 80%;
-    margin: 0 2vw 0 2vw;
+    box-shadow: 0vw var(--vw4px) 1.05vw var(--black);
+    margin: 0 1.5vw 0 1.5vw;
     overflow-y: scroll;
-    padding: 1vw 1.65vw 1vw 1.65vw;
+    padding: 1vw 1.5vw 1vw 1.65vw;
 }
 
 .txt-box::-webkit-scrollbar {
@@ -39,20 +52,10 @@
     width: 0;
 }
 
-.active_l{
+.active-l{
     animation: appear 2.5s;
 }
 
-@keyframes appear{
-    from{transform: translate(-6vw, 0px);}
-    to{transform: translate(0px, 0px);}
-}
-
-.active_r{
+.active-r{
     animation: appear_r 2.5s;
-}
-
-@keyframes appear_r{
-    from{transform: translate(6vw, 0px);}
-    to{transform: translate(0px, 0px);}
 }
