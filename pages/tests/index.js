@@ -75,6 +75,54 @@ const generateInputs = (
     question = {}, questionId = '', inputsFieldsetElem,
     solvedQuestionsArray = [], questionsArray = [], questionTypes = {}
 ) => {
+    if (question.type === questionTypes.code) {
+        const consoleElem = createElem('textarea');
+        consoleElem.value = codeEditor.consoleInitialText;
+
+        inputsFieldsetElem.append(consoleElem);
+
+        const consoleEditor = CodeMirror.fromTextArea(consoleElem, consoleEditorConfig);
+        consoleEditor.setSize('auto', 'auto');
+
+        question.inputsInitialValues.forEach(inputInitialValue => {
+            const inputElem = createElem('textarea');
+            inputElem.name = questionId;
+            inputElem.value = inputInitialValue;
+
+            inputsFieldsetElem.prepend(inputElem);
+
+            const editor = CodeMirror.fromTextArea(inputElem, {
+                ...codeEditorConfig,
+                mode: question.mode
+            })
+            editor.setSize(null, codeEditor.height);
+
+            editor.on('keydown', (_cm, event) => {
+                inputElem.value = editor.getValue();
+                updateForm(questionId, question.type, questionTypes, solvedQuestionsArray, questionsArray);
+
+                if (event.ctrlKey && event.keyCode === 13) {
+                    const editorValue = editor.getValue();
+                    const rgConsoleLog = /console\.log\((?<logCode>(.+))\);?/g;
+
+                    const logCodes = Array.from(editorValue.matchAll(rgConsoleLog));
+                    const editorsValueExceptLogs = editorValue.replace(rgConsoleLog, '');
+
+                    consoleEditor.setValue(
+                        logCodes.map(logCode => logCode.groups['logCode']
+                            .split(',')
+                            .map(logCodePart => (new Function(editorsValueExceptLogs.concat(`return ${logCodePart};`)))())
+                            .join(', ')
+                        ).join('\n')
+                    );
+                }
+            });
+        });
+
+        return;
+    }
+
+
     question.answers.forEach((answer, index) => {
         const inputElem = createElem('input');
         inputElem.id = `${questionId}-${index}`;
@@ -269,6 +317,18 @@ const handleFormSubmit = (testData = {}, questionTypes = {}) => {
                     }
                     case questionTypes.match: {
                         correctness += Number(correctAnswers.at(index) === parseInt(input.value)) / correctAnswers.length;
+                        break;
+                    }
+                    case questionTypes.code: {
+                        correctAnswers.forEach((answer) => {
+                            const codeMatch = input.value.match(answer.regex);
+                            const checkCodeFunc = new Function(codeMatch.groups[answer.group]);
+
+                            answer.tests.forEach(test => {
+                                correctness += Number(checkCodeFunc(...test.args) === test.result)
+                                    / correctAnswers.length / answer.tests.length;
+                            });
+                        });
                         break;
                     }
                 }

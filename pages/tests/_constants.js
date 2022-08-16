@@ -25,3 +25,28 @@ const cn = {
     qLabelFigure: 'label-figure',
     qLabelImgContainer: 'input-img-container',
 }
+
+
+const codeEditor = {
+    theme: 'dracula',
+    height: 100,
+    minCheckValueLenght: 5,
+    consoleInitialText: 'Output will be shown here...',
+}
+
+const consoleEditorConfig = {
+    mode: 'text',
+    theme: codeEditor.theme,
+    lineNumbers: true,
+    readOnly: true,
+    lineWrapping: true
+}
+
+const codeEditorConfig = {
+    theme: codeEditor.theme,
+    lineNumbers: true,
+    extraKeys: { 'Tab': 'autocomplete' },
+    lineWrapping: true,
+    lint: true,
+    gutters: ['CodeMirror-lint-markers'],
+}
