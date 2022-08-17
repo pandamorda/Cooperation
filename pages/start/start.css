@@ -9,6 +9,27 @@
     to{transform: translate(0vw, 0vw);}
 }
 
+@keyframes btn-appear{
+    from{transform: translate(0, -10vw);}
+    to{transform: translate(0, 0vw);}
+}
+
+@keyframes btn-disappear{
+    from{transform: translate(0, 0vw);}
+    to{transform: translate(0, -10vw);}
+}
+
+
+@keyframes profile-appear{
+    from{transform: translate(15vw, 0);}
+    to{transform: translate(0, 0);}
+}
+@keyframes profile-disappear{
+    from{transform: translate(0, 0);}
+    to{transform: translate(15vw, 0);}
+}
+
+
 section{
     padding: 1.5vw;
 }
@@ -44,6 +65,7 @@ section{
     padding: 1vw 1.5vw 1vw 1.65vw;
 }
 
+
 .txt-box::-webkit-scrollbar {
     width: 0;
 }
@@ -58,4 +80,53 @@ section{
 
 .active-r{
     animation: appear_r 2.5s;
+}
+
+/*Buttons*/
+
+.buttons{
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    top: 0;
+    right: 0;
+    width: min(12.5vw,240px);
+    height: min(5.73vw, 110px);
+}
+
+.inner{
+    text-align: center;
+    margin: 0.3vw 0 0 4vw;
+    display: block;
+    position: relative;
+    padding: min(0.52vw, 10px) var(--border-radius-medium);
+    border-radius: var(--border-radius-medium);
+    background-color: var(--cyan);
+    color: var(--text-color-white);
+    width: min(6vw,240px);
+    height: min(2.2vw, 110px);
+    backdrop-filter: brightness(210%) saturate(0);
+}
+
+.arrow{
+    position: absolute;
+    left: 2.25vw;
+}
+
+.buttons-appear{
+    animation: btn-appear 1s;
+}
+.buttons-disappear{
+    animation: btn-disappear 1s;
+}
+
+.profile-appear{
+    animation: profile-appear 1s;
+}
+
+.profile-disappear{
+    animation: profile-disappear 1s;
 }

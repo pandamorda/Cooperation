@@ -6,7 +6,6 @@ animItem.forEach( e => {
 
 const animOnScroll = () =>{
     let windowPosition = (window.innerHeight) + window.scrollY;
-    console.log(windowPosition);
     
     animItem.forEach((e, _index) =>{
         let scrollOffset = e.getBoundingClientRect().top - e.offsetHeight/5;
