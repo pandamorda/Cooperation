@@ -1,6 +1,3 @@
-@import url("./_null.css");
-@import url("./_constants.css");
-
 /* Wrapper w1920px  */
 .wrapper {
   display: flex;
@@ -8,6 +5,7 @@
 
   margin: auto;
   max-width: var(--wrapper-max-width);
+
   min-height: 100vh;
 
   background-color: var(--black);
