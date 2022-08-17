@@ -3,7 +3,7 @@ const ANCHOR_SOLVED_INNER_HTML = '✔';
 const REDIRECT_TIME = 3000;
 const PROGRESSBAR_PRECISION = 2;
 
-const id = {
+const ID = {
     progressbar: 'test-progress',
     progressbarLabel: 'test-progress-label',
     testName: 'test-name',
@@ -13,7 +13,7 @@ const id = {
     buttonSubmit: 'submit',
 }
 
-const cn = {
+const CN = {
     anchor: 'anchor',
     clickable: 'clicable',
     qLegend: 'form-question',
@@ -27,23 +27,23 @@ const cn = {
 }
 
 
-const codeEditor = {
+const CODE_EDITOR = {
     theme: 'dracula',
     height: 100,
     minCheckValueLenght: 5,
     consoleInitialText: 'Output will be shown here...',
 }
 
-const consoleEditorConfig = {
+const CONSOLE_EDITOR_CONFIG = {
     mode: 'text',
-    theme: codeEditor.theme,
+    theme: CODE_EDITOR.theme,
     lineNumbers: true,
     readOnly: true,
     lineWrapping: true
 }
 
-const codeEditorConfig = {
-    theme: codeEditor.theme,
+const CODE_EDITOR_CONFIG = {
+    theme: CODE_EDITOR.theme,
     lineNumbers: true,
     extraKeys: { 'Tab': 'autocomplete' },
     lineWrapping: true,
