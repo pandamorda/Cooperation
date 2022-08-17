@@ -1,5 +1,3 @@
-@import url("./_theme.css");
-
 :root {
   --input-border-radius: var(--border-radius-medium);
   --input-height: min(3.12vw, 60px);
