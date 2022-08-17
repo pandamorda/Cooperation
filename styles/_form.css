@@ -47,9 +47,6 @@ input {
   box-shadow: var(--box-shadow-medium);
   background-color: var(--grey-l2);
 
-  font-family: inherit;
-  font-size: inherit;
-
   cursor: pointer;
 }
 

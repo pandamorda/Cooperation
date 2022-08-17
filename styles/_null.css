@@ -44,13 +44,15 @@ a,
 fieldset,
 legend,
 input,
-span {
+span,
+textarea {
   box-sizing: border-box;
 }
 
 a,
 button,
-input {
+input,
+textarea {
   outline: none;
 }
 
@@ -75,9 +77,13 @@ figure {
   border: none;
 }
 
-input {
+input,
+textarea {
   appearance: none;
   border: none;
+
+  font-family: inherit;
+  font-size: inherit;
 }
 
 h1,
