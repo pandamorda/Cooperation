@@ -10,7 +10,6 @@ const cl = console.log;
 ///// 
 
 
-
 const updateSolvedIdsArray = (questionId = '', questionType = '', solvedQuestionsArray = [], questionTypes = {}) => {
     const inputElemsArray = Array.from(getElemsByName(questionId));
 
@@ -21,6 +20,10 @@ const updateSolvedIdsArray = (questionId = '', questionType = '', solvedQuestion
     switch (questionType) {
         case questionTypes.match: {
             isSolved = inputElemsArray.every(elem => elem.value);
+            break;
+        }
+        case questionTypes.code: {
+            isSolved = inputElemsArray.every(elem => elem.value.length >= CODE_EDITOR.minCheckValueLenght);
             break;
         }
         default: {
@@ -38,12 +41,12 @@ const updateSolvedIdsArray = (questionId = '', questionType = '', solvedQuestion
 
 const updateProgressbar = (solvedQuestionsArray = [], questionsArray = []) => {
     const testProgress = solvedQuestionsArray.length / questionsArray.length * 100 || 0;
-    getElemById(id.progressbar).value = testProgress;
-    getElemById(id.progressbarLabel).textContent = `Прогрес ${testProgress.toFixed(PROGRESSBAR_PRECISION)}%`;
+    getElemById(ID.progressbar).value = testProgress;
+    getElemById(ID.progressbarLabel).textContent = `Прогрес ${testProgress.toFixed(PROGRESSBAR_PRECISION)}%`;
 }
 
 const updateNav = (questionId = '', solvedQuestionIdsArray = []) => {
-    const questionAnchorElem = Array.from(getElemById(id.navList).getElementsByTagName('a'))
+    const questionAnchorElem = Array.from(getElemById(ID.navList).getElementsByTagName('a'))
         .filter(anchor => anchor.href.split('#').pop() === questionId)
         .pop();
 
@@ -62,26 +65,25 @@ const updateForm = (
 }
 
 const setInputEventlistener = (
-    element, questionId = '', questionType = '', questionTypes = {},
-    solvedQuestionsArray = [], questionsArray = [], questionHandlerAux = () => { }
+    element, questionHandlerAux = () => { }, ...args
 ) => {
     element.addEventListener('input', (event) => {
-        updateForm(questionId, questionType, questionTypes, solvedQuestionsArray, questionsArray);
+        updateForm(...args);
         questionHandlerAux && questionHandlerAux(event);
     });
 }
 
 const generateInputs = (
     question = {}, questionId = '', inputsFieldsetElem,
-    solvedQuestionsArray = [], questionsArray = [], questionTypes = {}
+    questionTypes = {}, ...args
 ) => {
     if (question.type === questionTypes.code) {
         const consoleElem = createElem('textarea');
-        consoleElem.value = codeEditor.consoleInitialText;
+        consoleElem.value = CODE_EDITOR.consoleInitialText;
 
         inputsFieldsetElem.append(consoleElem);
 
-        const consoleEditor = CodeMirror.fromTextArea(consoleElem, consoleEditorConfig);
+        const consoleEditor = CodeMirror.fromTextArea(consoleElem, CONSOLE_EDITOR_CONFIG);
         consoleEditor.setSize('auto', 'auto');
 
         question.inputsInitialValues.forEach(inputInitialValue => {
@@ -92,14 +94,14 @@ const generateInputs = (
             inputsFieldsetElem.prepend(inputElem);
 
             const editor = CodeMirror.fromTextArea(inputElem, {
-                ...codeEditorConfig,
+                ...CODE_EDITOR_CONFIG,
                 mode: question.mode
             })
-            editor.setSize(null, codeEditor.height);
+            editor.setSize(null, CODE_EDITOR.height);
 
             editor.on('keydown', (_cm, event) => {
                 inputElem.value = editor.getValue();
-                updateForm(questionId, question.type, questionTypes, solvedQuestionsArray, questionsArray);
+                updateForm(questionId, question.type, questionTypes, ...args);
 
                 if (event.ctrlKey && event.keyCode === 13) {
                     const editorValue = editor.getValue();
@@ -127,10 +129,10 @@ const generateInputs = (
         const inputElem = createElem('input');
         inputElem.id = `${questionId}-${index}`;
         inputElem.name = questionId;
-        inputElem.classList.add(cn.clickable);
+        inputElem.classList.add(CN.clickable);
         setInputEventlistener(
-            inputElem, questionId, question.type,
-            questionTypes, solvedQuestionsArray, questionsArray
+            inputElem, null, questionId,
+            question.type, questionTypes, ...args
         );
 
         const labelElem = createElem('label');
@@ -152,7 +154,7 @@ const generateInputs = (
             }
             case questionTypes.multiImg: {
                 inputElem.type = 'checkbox';
-                labelElem.classList.add(cn.figureLabel);
+                labelElem.classList.add(CN.figureLabel);
 
                 const answerTextElem = createElem('span');
                 answerTextElem.textContent = answer.text;
@@ -162,7 +164,7 @@ const generateInputs = (
                 answerImgElem.alt = answer.text
 
                 const answerImgContainerElem = createElem('span');
-                answerImgContainerElem.classList.add(cn.qLabelImgContainer);
+                answerImgContainerElem.classList.add(CN.qLabelImgContainer);
                 answerImgContainerElem.append(answerImgElem);
 
                 labelElem.append(answerImgContainerElem, answerTextElem);
@@ -171,14 +173,15 @@ const generateInputs = (
             }
             case questionTypes.match: {
                 setInputEventlistener(
-                    inputElem, questionId, question.type, questionTypes,
-                    solvedQuestionsArray, questionsArray, (event) => {
+                    inputElem,
+                    (event) => {
                         const charCode = Number(event.currentTarget.value);
-
                         if (isNaN(charCode) || charCode < 0 || question.answers.length <= charCode) {
                             event.currentTarget.value = '';
                         }
-                    });
+                    },
+                    questionId, question.type, questionTypes, ...args
+                );
 
                 inputElem.setAttribute('maxlength', 1);
                 labelElem.textContent = answer.definition || '';
@@ -188,7 +191,7 @@ const generateInputs = (
 
                 const matchWrapperElem = createElem('span');
                 matchWrapperElem.textContent = `${index}. ${answer.match}` || '';
-                matchWrapperElem.classList.add(cn.qMatchText);
+                matchWrapperElem.classList.add(CN.qMatchText);
 
                 inputWrapperChilds = [inputWrapperElem, matchWrapperElem];
                 break;
@@ -200,33 +203,33 @@ const generateInputs = (
     });
 }
 
-const generateQuestions = (testData = {}, questionTypesData = {}, solvedQuestionIdsArray = []) => {
-    const questionsNav = getElemById(id.navList);
-    const buttonSubmit = getElemById(id.buttonSubmit);
+const generateQuestions = (testData = {}, questionTypes = {}, solvedQuestions = []) => {
+    const questionsNav = getElemById(ID.navList);
+    const buttonSubmit = getElemById(ID.buttonSubmit);
 
     testData.questions.forEach((question, questionIndex) => {
         const questionId = `${QUESTION_ID_PREFIX}${questionIndex}`;
 
         const inputsFieldsetElem = createElem('fieldset');
-        inputsFieldsetElem.classList.add(cn.qInputs);
+        inputsFieldsetElem.classList.add(CN.qInputs);
 
         switch (question.type) {
-            case questionTypesData.multiImg: {
-                inputsFieldsetElem.classList.add(cn.qInputsFigures);
+            case questionTypes.multiImg: {
+                inputsFieldsetElem.classList.add(CN.qInputsFigures);
                 break;
             }
-            case questionTypesData.match: {
-                inputsFieldsetElem.classList.add(cn.qInputsMatches);
+            case questionTypes.match: {
+                inputsFieldsetElem.classList.add(CN.qInputsMatches);
                 break;
             }
         }
 
         const questionLegendElem = createElem('legend');
-        questionLegendElem.classList.add(cn.qLegend);
+        questionLegendElem.classList.add(CN.qLegend);
         questionLegendElem.textContent = question.text;
 
         const questionFieldsetElem = createElem('fieldset');
-        questionFieldsetElem.classList.add(cn.qFieldset, cn.anchor);
+        questionFieldsetElem.classList.add(CN.qFieldset, CN.anchor);
         questionFieldsetElem.id = questionId;
 
         questionFieldsetElem.append(questionLegendElem, inputsFieldsetElem);
@@ -234,7 +237,7 @@ const generateQuestions = (testData = {}, questionTypesData = {}, solvedQuestion
 
         generateInputs(
             question, questionId, inputsFieldsetElem,
-            solvedQuestionIdsArray, testData.questions, questionTypesData
+            questionTypes, solvedQuestions, testData.questions,
         );
 
 
@@ -243,120 +246,95 @@ const generateQuestions = (testData = {}, questionTypesData = {}, solvedQuestion
         questionAnchorElem.textContent = questionIndex;
 
         const questionNavItemElem = createElem('li');
-        questionNavItemElem.classList.add(cn.clickable);
+        questionNavItemElem.classList.add(CN.clickable);
         questionNavItemElem.append(questionAnchorElem);
 
         questionsNav.append(questionNavItemElem);
     });
 }
 
-const handleTimer = async (testData = {}) => {
-    const stopTest = (interval) => {
-        clearInterval(interval);
+const handleTimer = async (test = {}, timeLimit = 0) => {
+    const navTimerElem = getElemById(ID.navTimer);
+    let secondsCounter = timeLimit * 1e-3;
 
-        Array.from(getElemsByTagName('input'))
-            .concat(Array.from(getElemsByTagName('textarea')))
-            .forEach(elem => elem.disabled = true);
+    test.interval = setInterval(() => {
+        const seconds = secondsCounter % 60;
+        navTimerElem.textContent = `${Math.trunc(secondsCounter / 60)}:${seconds < 10 ? `0${seconds}` : seconds}`;
 
-        handleFormSubmit(testData);
-
-        let redirectSecondsCounter = REDIRECT_TIME * 1e-3;
-        const redirectInterval = setInterval(() => {
-            getElemById(id.testName).textContent = `${testData.name} (Завершено, перенаправлення ${redirectSecondsCounter}...)`;
-
-            redirectSecondsCounter === 0 && clearInterval(redirectInterval);
-            redirectSecondsCounter--;
-        }, 1000);
-    }
-
-
-    const navTimerElem = getElemById(id.navTimer);
-    let testSecondsCounter = testData.timeLimit * 1e-3;
-
-    const testInterval = setInterval(() => {
-        const seconds = testSecondsCounter % 60;
-        navTimerElem.textContent = `${Math.trunc(testSecondsCounter / 60)}:${seconds < 10 ? `0${seconds}` : seconds}`;
-
-        testSecondsCounter === 0 && stopTest(testInterval);
-        testSecondsCounter--;
+        if (secondsCounter <= 0) {
+            clearInterval(test.interval);
+            getElemById(ID.form).dispatchEvent(new Event('submit'));
+        }
+        secondsCounter--;
     }, 1000);
 }
 
-const handleFormSubmit = (testData = {}, questionTypes = {}) => {
-    const results = [];
-
-    testData.questions.forEach((question, index) => {
+const submitForm = async (testData = {}, questionTypes = {}) => {
+    const testResultsData = { ...testData };
+    testResultsData.questions = testResultsData.questions.map((question, index) => {
         const inputsArray = Array.from(getElemsByName(`${QUESTION_ID_PREFIX}${index}`));
-        let isAllHasSameValue = false;
 
-        switch (question.type) {
-            case questionTypes.multi:
-            case questionTypes.multiImg:
-            case questionTypes.match: {
-                isAllHasSameValue = inputsArray.every(input => input.checked === inputsArray[0].checked && input.value === inputsArray[0].value);
-            }
-        }
-
-        let correctness = 0;
-        if (!isAllHasSameValue) {
-            const correctAnswers = question.correctAnswers;
-
-            inputsArray.forEach((input, index) => {
+        const checkedInputsArray = inputsArray
+            .map((input, index) => {
                 switch (question.type) {
                     case questionTypes.multi:
-                    case questionTypes.multiImg:
                     case questionTypes.single: {
-                        if (input.checked) {
-                            correctness += correctAnswers.indexOf(index) !== -1
-                                ? 1.0 / correctAnswers.length
-                                : correctness && question.type !== questionTypes.single
-                                    ? -1.0 / inputsArray.length
-                                    : 0;
-                        }
-                        break;
+                        return { index, value: input.checked };
                     }
-                    case questionTypes.match: {
-                        correctness += Number(correctAnswers.at(index) === parseInt(input.value)) / correctAnswers.length;
-                        break;
-                    }
-                    case questionTypes.code: {
-                        correctAnswers.forEach((answer) => {
-                            const codeMatch = input.value.match(answer.regex);
-                            const checkCodeFunc = new Function(codeMatch.groups[answer.group]);
-
-                            answer.tests.forEach(test => {
-                                correctness += Number(checkCodeFunc(...test.args) === test.result)
-                                    / correctAnswers.length / answer.tests.length;
-                            });
-                        });
-                        break;
+                    default: {
+                        return { index, value: input.value };
                     }
                 }
-            });
-        }
+            })
 
-        results.push({ ...question, correctness });
+        return { ...question, inputs: checkedInputsArray };
     });
 
-    cl(results);
+    cl(testResultsData);
     // TODO: send data to backend
+
+    const pagesUrls = await getPagesUrls();
+    redirectPage(
+        pagesUrls.console, '_blank', 3000,
+        (secondsCounter) => {
+            getElemById(ID.testName).textContent = `${testData.name} (Завершено, перенаправлення ${secondsCounter}...)`;
+        }
+    );
 };
 
 
-const handleForm = async () => {
-    const testData = await getTestData();
-    const questionTypesData = await getQuestionTypesData();
 
-    getElemById(id.testName).textContent = testData.name;
+const handleFormLoad = async () => {
+    const test = {
+        interval: 0,
+        data: await getTestData(),
+        questions: {
+            solvedIdsArray: [],
+            types: await getQuestionTypesData()
+        }
+    };
 
-    const solvedQuestionIdsArray = [];
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        clearInterval(test.interval);
 
-    updateProgressbar(solvedQuestionIdsArray, testData.questions);
-    generateQuestions(testData, questionTypesData, solvedQuestionIdsArray);
-    handleTimer(testData);
+        Array.from(getElemsByTagName('input'))
+            .concat(Array.from(getElemsByTagName('textarea')))
+            .concat(getElemById(ID.buttonSubmit))
+            .forEach(elem => elem.disabled = true);
 
-    const form = getElemById(id.form);
-    form.addEventListener('submit', (event) => { event.preventDefault(); handleFormSubmit(testData, questionTypesData) });
+        submitForm(test.data, test.questions.types);
+    }
+
+
+    getElemById(ID.testName).textContent = test.data.name;
+
+    updateProgressbar(test.questions.solvedIdsArray, test.data.questions);
+    generateQuestions(test.data, test.questions.types, test.solvedIdsArray);
+    handleTimer(test, test.data.timeLimit);
+
+    getElemById(ID.form).addEventListener('submit', handleFormSubmit);
+    getElemById(ID.buttonSubmit).addEventListener('click', handleFormSubmit);
 };
 
-window.addEventListener('load', handleForm);
+window.addEventListener('load', handleFormLoad);
