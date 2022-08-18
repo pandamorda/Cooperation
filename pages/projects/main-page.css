@@ -3,20 +3,22 @@
 .projects{
     display: flex;
     justify-content: space-around;
-    list-style-type: none;
     flex-wrap: wrap;
 }
 
-section {
+main figure {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 5%;
-    margin: 5%;
-    width: min(18.22vw, 350px);
+    width: min(15.625vw, 300px);
 }
 
-section img{
+section {
+    padding: var(--border-radius-medium);
+    margin-bottom: 5%;
+}
+
+figure img{
     border-radius: var(--border-radius-medium);
 }
 
