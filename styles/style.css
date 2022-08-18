@@ -1,3 +1,6 @@
+@import url("./_null.css");
+@import url("./_constants.css");
+@import url("./_theme.css");
 @import url("./_layout.css");
 @import url("./_form.css");
 @import url("./_media.css");
@@ -7,7 +10,7 @@
   scroll-margin-top: var(--header-height);
 }
 
-/* Headers / lists */
+/* Headers / lists / p */
 h1,
 h2 {
   font-size: 1.5em;
@@ -19,6 +22,10 @@ h1 {
 
 h2 {
   margin-bottom: min(1.04vw, 20px);
+}
+
+h3 {
+  margin-bottom: min(0.52vw, 10px);
 }
 
 section ol {
@@ -33,11 +40,16 @@ section li {
   margin-left: var(--content-par-indent);
 }
 
+p {
+  text-indent: min(2.6vw, 50px);
+}
+
 /* Elements hover / active */
-.clicable:hover {
+.clicable:not(:disabled):hover {
   filter: var(--hover-filter);
 }
-.clicable:active {
+
+.clicable:not(:disabled):active {
   filter: var(--active-filter);
 }
 
