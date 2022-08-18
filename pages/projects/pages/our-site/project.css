@@ -1,9 +1,9 @@
 @import url("/styles/style.css");
 
-.stages{
+.stages {
     width: min(12vw, 230px);
     padding: 3% 0;
-    font-size: large;
+    font-size: 0.75em;
 }
 
 .content {
@@ -17,13 +17,14 @@
     margin-bottom: 10%;
 }
 
-.left-bar {
+aside {
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: flex-start;
     margin-right: 5%;
 }
+
 .stage {
     margin-bottom: 5%;
     margin-top: 5%;
@@ -31,6 +32,7 @@
 
 section ul li {
     margin-left: 10%;
+    margin-right: 5%;
 }
 
 h2, h3 , p{
