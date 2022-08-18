@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="profile.css">
+        <script src="profile.js"></script>
         <title>Profile</title>
     </head>
     <body>
-    <div class="wrapper">
+    <div class="wrapper" id="#main-menu">
         <header>
             <a href="/index.html" class="logo-link">
                 <figure>
@@ -51,15 +52,15 @@
                     <img src="../../src/images/profile/PROF_1.jpg" class="photo-profile">
                     <div class="text-profile">
                     <p>Ім'я:</p>
-                    <p>Панда</p>
-                    <p>Прізвіще:</p>
-                    <p>Андріївна</p>
+                    <div id="name"> Панда</div>
+                    <p>Прізвище:</p>
                     <p>Пошта:</p>
-                    <p>panda@gmail.com</p>
                     </div>
                     <figure class="my-project">
+                        <a href="#popup" class="upload-file"><img class="--upload--file" src="../../src/images/cooperation/file_icon.png"></a>
                         <img src="../../src/images/profile/githab.png">
                         <img src="../../src/images/profile/likedin.png">
+
                     </figure>
                     <!--
                     <form enctype="multipart/form-data" method="post">
@@ -87,20 +88,65 @@
                     </div>
                 </section>
 
-                <section class="setting-profile">
+                <section  id="ame"class="setting-profile">
                     <h2>Налаштування</h2>
-                        <a class="text-setting">Змінити ім'я / призвіще</a>
-                        <a class="text-setting">Змінити пароль</a>
-                        <a class="text-setting">Змінити мову сайту</a>
-                        <a class="text-setting">Змінити електронну почту</a>
-                        <a class="text-setting">Редагувати резюме</a>
+                    <div class="change-name">
+                        <p class="text-setting">Змінити ім'я</p>
+                    </div>
+                   <script>
+                       document.onclick = () => {
+
+                       const p = document.querySelector('.change-name p');
+                       const textarea = document.createElement('textarea');
+                       textarea.value = p.innerText;
+                       p.replaceWith( textarea );
+                   }</script>
+
+                    <form id="change" name="change">
+                        <input type="text" name="key" placeholder="ім'я"></input>
+                        <input type="button" name="print" value="Зберегти" />
+                    </form>
+                    <script>
+                        var keyBox = document.search.key;
+
+                        function onchange(e) {
+                        var printBlock = document.getElementById("name");
+                        var val = e.target.value;
+                        printBlock.textContent = val;
+                    }
+                    function onblur(e) {
+
+                        var text = keyBox.value.trim();
+                        if (text==="")
+                            keyBox.style.borderColor = "red";
+                        else
+                            keyBox.style.borderColor = "green";
+                    }
+                    function onfocus(e){
+
+                        keyBox.style.borderColor = "blue";
+                    }
+                    keyBox.addEventListener("change", onchange);
+                    keyBox.addEventListener("blur", onblur);
+                    keyBox.addEventListener("focus", onfocus);</script>
+                    <a class="text-setting">Змінити пароль</a>
+                    <a class="text-setting">Змінити мову сайту</a>
+                    <a class="text-setting">Змінити електронну почту</a>
+                    <a class="text-setting">Редагувати резюме</a>
 
                 </section>
 
                 <section class="questionnaire">
                     <h2>Анкета</h2>
-                     
-
+                    <a href="#popup-q" class="about-choice" ><img class="--about--choice" src="../../src/images/profile/img_1.png" class="unity"></a>
+                    <div class="about--q" id="popup-q">
+                        <a href="#main-menu" class="--escape--from--popup"></a>
+                        <div class="content-q">
+                            <h4>Unity</h4>
+                            <pre class="text-popup">Разработка игр на Unity</pre>
+                            <input type="checkbox" id="unity-check">
+                        </div>
+                    </div>
                 </section>
 
             </div>
@@ -112,6 +158,17 @@
     </footer>
 
     </div>
+
+    <div class="upload--file--popup" id="popup">
+        <a href="#main-menu" class="--escape--from--popup"></a>
+        <div class="content--file--download">
+            <button class="upload--file--button">UPLOAD</button>
+            <button class="upload--file--by--link">GET BY LINK</button>
+        </div>
+    </div>
+
+
+
 
     </body>
 </html>

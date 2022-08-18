@@ -3,8 +3,12 @@
 .content{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap:min(2.08vw, 40px) ;
+    grid-gap:min(2.08vw, 40px);
     /*height: min();*/
+
+}
+.content >section{
+    margin-bottom: 0;
 }
 .main-profile {
     background:  var(--grey-l0);
@@ -23,14 +27,21 @@
     font-size: 1vw;
 }
 
+
 .main-profile .my-project{
     clear: both;
     display: flex;
     flex-direction: row-reverse;
-    /*justify-content: space-between;*/
-    align-items: flex-end;
-    padding-bottom: 10vh;
-    height: min(4vw, 78px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.5vh 2vw 0;
+    height: min(4vw, пше78px);
+    width: 22vw;
+}
+
+.upload-file .--upload--file{
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -66,7 +77,7 @@
     color: var(--text-color-white);
     padding-right: 0;
     padding-left: 0;
-    padding-bottom: 0;
+    padding-bottom: 2vh;
 }
 
 .process .scroll {
@@ -103,18 +114,110 @@
     background: var(--grey-l0);
     box-shadow: var(--box-shadow-medium);
     color: var(--text-color-white);
-    display: flex;
 }
-.quest-photo{
-    height: min(4vw, 78px);
-    display: flex;
-    flex-wrap:wrap;
-    align-content: space-between;
-    flex-direction: column;
-    flex-basis: 6em;
-    flex-grow: initial;
+.unity{
+    width: min(3vw, 56px);
+    position: relative;
 
 }
+
+div.upload--file--popup{
+    position: fixed;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 0;
+    z-index: 101;
+    visibility: hidden;
+    opacity: 0;
+}
+
+div.upload--file--popup:target{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.35s;
+}
+
+div.content--file--download{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: 40%;
+    border-radius: var(--border-radius-medium);
+    background: rgba(42,38,44,1);
+}
+
+button.upload--file--by--link,
+button.upload--file--button{
+    justify-self: center;
+    height: 40%;
+    width: 40%;
+    background-color: rgba(42,38,44,0);
+    font-size: 1.5em;
+    font-family: JetBrains Mono;
+    color:var(--text-color-green);
+    border: 0.5px solid var(--text-color-white);
+    border-radius: var(--border-radius-high);
+
+}
+
+button.upload--file--by--link:hover,
+button.upload--file--button:hover{
+    color: yellow;
+    background-color: rgba(255, 255, 255, .025);
+}
+
+button.upload--file--by--link:active,
+button.upload--file--button:active{
+    color: red;
+    background-color: rgba(255, 255, 255, .025);
+}
+
+.--escape--from--popup{
+    height: 100%;
+    width: 100%;
+}
+
 footer{
     background-color: var(--black);
+}
+.content-q{
+    position: absolute;
+    background-color: var(--grey-l2);
+    width: min(15vw, 345px);
+
+    float: right;
+}
+div.about--q{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    top: 100px;
+    z-index: 101;
+    visibility: hidden;
+    opacity: 0;
+}
+
+div.about--q:target {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.35s;
+}
+.text-popup{
+    font-size: 14px;
+}
+#unity-check{
+    height: min(2vw, 12px);
+}
+#change{
+    position: relative;
+    padding-top: 2vh;
+    padding-bottom: 5vh;
 }

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registration</title>
+    <link rel="stylesheet" href="register-style.css">
+</head>
+<body>
+
+<button id="cnopka-nah">Show\Hide</button>
+<div class="--registration__popup show-or-hide">
+
+
+        <a class="popup-exit"></a>
+
+        <div class="--registration__content">
+            <form class = "registration-form" action="#">
+                <h2>Регистрация</h2>
+                <div class="form-field">
+                    <input type="email" placeholder=" E-mail">
+                </div>
+
+                <div class=".form-field --form__names">
+
+                    <div class="--names">
+                        <input class="--names__input" type="text" placeholder="Имя">
+                    </div>
+                    <div class="--names">
+                        <input class="--names__input" type="text" placeholder="Фамилия">
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <input type="text" placeholder="Номер">
+                </div>
+
+                <div class="form-field">
+                    <input type="password" type="text" placeholder="Пароль">
+                </div>
+
+                <div class="form-field">
+                    <input type="password" minlength="8" maxlength="20" placeholder="Повторите пароль">
+                </div>
+
+                <div class="form-field --accept__form">
+
+                    <input class="right" type="checkbox">
+                    <span>Принимаю условия</span>
+
+                </div>
+
+                <div class = "submit_btn">
+                    <button type="submit" class="reg">Зарегестрироваться</button>
+                </div>
+            </form>
+            <div class = form-footer>
+                <span class="switch">
+                    Вже не вперше?
+                </span>
+                <a class = "login-link" href = "#" target = "clickable" >Log In</a>
+            </div>
+
+        </div>
+
+
+
+
+</div>
+
+<div class="--login__popup show-or-hide">
+
+    <a class="popup-exit" target="clickable"></a>
+
+    <div class="--login__content ">
+
+        <h2>Авторизация</h2>
+
+        <div class="form-field">
+            <input type="email" placeholder="E-mail">
+        </div>
+
+        <div class="form-field">
+            <input type="password" minlength="8" maxlength="20" placeholder="Пароль">
+        </div>
+
+        <div class = form-footer>
+            <span class="switch">
+                Вперше?
+            </span>
+            <a class = "reg-link" href = "#" target = "clickable" >Reg</a>
+        </div>
+    </div>
+
+</div>
+<script src="registr-js.js"></script>
+</body>
+</html>
