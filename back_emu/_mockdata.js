@@ -1,17 +1,21 @@
 "use strict";
 
 const REQUEST_RESPONSE_TIME = 0;
+const ONE_SECOND = 1000;
+const REDIRECT_TIME = 3000;
 
 
 const promisifyData = (data = {}) => new Promise((fulfill) => {
     setTimeout(
-        () => { fulfill(data); },
+        () => { fulfill(JSON.stringify(data)); },
         REQUEST_RESPONSE_TIME
     );
 });
 
-
-const redirectPage = (url = '', openMode = '_blanket', redirectTime = 0, aux = (_secondsCounter) => { }) => {
+const redirectPage = async (
+    url = '', openMode = '_blanket', redirectTime = 0,
+    aux = (_secondsCounter) => { }
+) => new Promise(fulfill => {
     let secondsCounter = redirectTime * 1e-3;
     const redirectInterval = setInterval(() => {
         aux && aux(secondsCounter);
@@ -19,8 +23,14 @@ const redirectPage = (url = '', openMode = '_blanket', redirectTime = 0, aux = (
         if (secondsCounter === 0) {
             clearInterval(redirectInterval)
             window.open(url, openMode);
+            fulfill();
         };
 
         secondsCounter--;
-    }, 1000);
-}
+    }, ONE_SECOND);
+});
+
+const getPagesUrls = () => promisifyData({
+    console: '/pages/console/',
+    tests: '/pages/tests/',
+});

@@ -293,9 +293,9 @@ const submitForm = async (testData = {}, questionTypes = {}) => {
     cl(testResultsData);
     // TODO: send data to backend
 
-    const pagesUrls = await getPagesUrls();
+    const pagesUrls = JSON.parse(await getPagesUrls());
     redirectPage(
-        pagesUrls.console, '_blank', 3000,
+        pagesUrls.console, '_blank', REDIRECT_TIME,
         (secondsCounter) => {
             getElemById(ID.testName).textContent = `${testData.name} (Завершено, перенаправлення ${secondsCounter}...)`;
         }
@@ -307,10 +307,10 @@ const submitForm = async (testData = {}, questionTypes = {}) => {
 const handleFormLoad = async () => {
     const test = {
         interval: 0,
-        data: await getTestData(),
+        data: JSON.parse(await getTestData()),
         questions: {
             solvedIdsArray: [],
-            types: await getQuestionTypesData()
+            types: JSON.parse(await getQuestionTypesData())
         }
     };
 
