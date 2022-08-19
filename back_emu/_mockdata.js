@@ -1,6 +1,6 @@
 "use strict";
 
-const REQUEST_RESPONSE_TIME = 0;
+const REQUEST_RESPONSE_TIME = 500;
 const ONE_SECOND = 1000;
 const REDIRECT_TIME = 3000;
 

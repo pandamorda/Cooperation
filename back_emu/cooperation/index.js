@@ -27,7 +27,7 @@ const getUserData = () => promisifyData({
 
 ///// Tests Page /////
 
-const testTypes = {
+const questionTypes = {
     multi: 'multi',
     single: 'single',
     multiImg: 'multi-img',
@@ -35,92 +35,107 @@ const testTypes = {
     code: 'code',
 }
 
-const getQuestionTypesData = () => promisifyData(testTypes);
-
-const getTestData = () => promisifyData({
-    testId: 0,
-    name: 'English Test',
-    timeLimit: 18e5,
-    questions: [
-        {
-            type: testTypes.multi,
-            text: 'Some question 1?',
-            answers: ['answer1', 'answer2', 'answer3']
-        },
-        {
-            type: testTypes.single,
-            text: 'Some question 2?',
-            answers: ['answer1', 'answer2', 'answer3']
-        },
-        {
-            type: testTypes.multiImg,
-            text: 'Some question 3?',
-            answers: [
-                { text: 'answer1', src: '/src/images/logo_icon.jpeg' },
-                { text: 'answer2', src: '/src/images/logo_icon.jpeg' },
-                { text: 'answer3', src: '/src/images/logo_icon.jpeg' }
-            ]
-        },
-        {
-            type: testTypes.match,
-            text: 'Some question 4?',
-            answers: [
-                { definition: 'def1', match: 'match1' },
-                { definition: 'def2', match: 'match2' },
-                { definition: 'def3', match: 'match3' },
-            ]
-        },
-        {
-            type: testTypes.code,
-            text: 'Some question 5? (Press \'Ctrl + Enter\' to run)',
-            mode: 'javascript',
-            inputsInitialValues: [`const main = () => {const a=1; const b=2; return a+b;}\nconsole.log(main(), 3);\nconsole.log(main(), 'abc');`],
-        },
+const sampleTest = {
+    data: {
+        testId: 0,
+        name: 'English Test',
+        timeLimit: 18e5,
+        questions: [
+            {
+                type: questionTypes.multi,
+                text: 'Some question 1?',
+                answers: ['answer1', 'answer2', 'answer3']
+            },
+            {
+                type: questionTypes.single,
+                text: 'Some question 2?',
+                answers: ['answer1', 'answer2', 'answer3']
+            },
+            {
+                type: questionTypes.multiImg,
+                text: 'Some question 3?',
+                answers: [
+                    { text: 'answer1', src: '/src/images/logo_icon.jpeg' },
+                    { text: 'answer2', src: '/src/images/logo_icon.jpeg' },
+                    { text: 'answer3', src: '/src/images/logo_icon.jpeg' }
+                ]
+            },
+            {
+                type: questionTypes.match,
+                text: 'Some question 4?',
+                answers: [
+                    { definition: 'def1', match: 'match1' },
+                    { definition: 'def2', match: 'match2' },
+                    { definition: 'def3', match: 'match3' },
+                ]
+            },
+            {
+                type: questionTypes.code,
+                text: 'Some question 5? (Press \'Ctrl + Enter\' to run)',
+                mode: 'javascript',
+                inputsInitialValues: [`const main = () => {const a=1; const b=2; return a+b;}\nconsole.log(main(), 3);\nconsole.log(main(), 'abc');`],
+            },
+        ]
+    },
+    answers: [
+        [0, 1],
+        [0],
+        [1, 2],
+        [0, 1, 2],
+        [
+            {
+                group: 'mainFunc',
+                regex: /(.+)main(.+)\{(?<mainFunc>(.+))\}/,
+                tests: [{ args: [], result: 3 }]
+            }
+        ]
     ]
-});
+}
 
 const checkTest = (testData = {}) => {
-    testData.forEach(question => {
-        let isAllHasSameValue = false;
+    const questions = testData.questions.map((question, questionIndex) => {
+        const questionAnswers = sampleTest.answers.at(questionIndex);
+        const inputs = question.inputs;
+        let isInputsIdentic = false;
 
         switch (question.type) {
             case questionTypes.multi:
             case questionTypes.multiImg:
             case questionTypes.match: {
-                isAllHasSameValue = inputsArray.every(input => input.checked === inputsArray[0].checked && input.value === inputsArray[0].value);
+                isInputsIdentic = inputs.every(input => input.value === inputs[0].value);
             }
         }
 
         let correctness = 0;
-        if (!isAllHasSameValue) {
-            const correctAnswers = question.correctAnswers;
+        if (!isInputsIdentic) {
 
-            inputsArray.forEach((input, index) => {
+            inputs.forEach((input) => {
                 switch (question.type) {
                     case questionTypes.multi:
                     case questionTypes.multiImg:
                     case questionTypes.single: {
-                        if (input.checked) {
-                            correctness += correctAnswers.indexOf(index) !== -1
-                                ? 1.0 / correctAnswers.length
+                        if (input.value) {
+                            cl(input.index)
+                            correctness += questionAnswers.indexOf(input.index) !== -1
+                                ? 1.0 / questionAnswers.length
                                 : correctness && question.type !== questionTypes.single
-                                    ? -1.0 / inputsArray.length
+                                    ? -1.0 / inputs.length
                                     : 0;
                         }
                         break;
                     }
                     case questionTypes.match: {
-                        correctness += Number(correctAnswers.at(index) === parseInt(input.value)) / correctAnswers.length;
+                        correctness +=
+                            Number(questionAnswers.at(input.index) === parseInt(input.value)) / questionAnswers.length;
                         break;
                     }
                     case questionTypes.code: {
-                        correctAnswers.forEach((answer) => {
+                        questionAnswers.forEach((answer) => {
                             const codeMatch = input.value.match(answer.regex);
                             const checkCodeFunc = new Function(codeMatch.groups[answer.group]);
 
-                            answer.tests.forEach(test => {
-                                correctness += Number(checkCodeFunc(...test.args) === test.result)
-                                    / correctAnswers.length / answer.tests.length;
+                            answer.tests.forEach((test) => {
+                                correctness += Number(checkCodeFunc(...test.args) === test.result) / answer.tests.length;
                             });
                         });
                         break;
@@ -128,5 +143,14 @@ const checkTest = (testData = {}) => {
                 }
             });
         }
+
+        return { ...question, correctness, correctAnswers: questionAnswers }
     });
+
+    return { ...testData, questions: questions };
 }
+
+
+const getQuestionTypesData = () => promisifyData(questionTypes);
+
+const getTestData = () => promisifyData(sampleTest.data);
