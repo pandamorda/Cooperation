@@ -274,18 +274,18 @@ const submitForm = async (testData = {}, questionTypes = {}) => {
     testResultsData.questions = testResultsData.questions.map((question, index) => {
         const inputsArray = Array.from(getElemsByName(`${QUESTION_ID_PREFIX}${index}`));
 
-        const checkedInputsArray = inputsArray
-            .map((input, index) => {
-                switch (question.type) {
-                    case questionTypes.multi:
-                    case questionTypes.single: {
-                        return { index, value: input.checked };
-                    }
-                    default: {
-                        return { index, value: input.value };
-                    }
+        const checkedInputsArray = inputsArray.map((input, index) => {
+            switch (question.type) {
+                case questionTypes.multi:
+                case questionTypes.multiImg:
+                case questionTypes.single: {
+                    return { index, value: input.checked };
                 }
-            })
+                default: {
+                    return { index, value: input.value };
+                }
+            }
+        })
 
         return { ...question, inputs: checkedInputsArray };
     });
@@ -323,6 +323,7 @@ const handleFormLoad = async () => {
             .concat(getElemById(ID.buttonSubmit))
             .forEach(elem => elem.disabled = true);
 
+        window.scrollTo(0, 0);
         submitForm(test.data, test.questions.types);
     }
 
