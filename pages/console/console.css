@@ -16,6 +16,10 @@
     border-top-right-radius: inherit;
 }
 
+#console {
+    filter: none;
+}
+
 .main {
     overflow-y: auto;
     resize: none;
