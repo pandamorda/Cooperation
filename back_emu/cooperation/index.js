@@ -9,11 +9,6 @@ const getConsoleConfig = () => promisifyData({
     versionPrecise: "0.8.0:a1",
 });
 
-const getPagesUrls = () => promisifyData({
-    console: '/pages/console/',
-    tests: '/pages/tests/',
-});
-
 const getUserData = () => promisifyData({
     card: {
         nickname: "M20A20X",
@@ -27,6 +22,7 @@ const getUserData = () => promisifyData({
     ],
     lastLogin: new Date()
 });
+
 
 
 ///// Tests Page /////
@@ -44,7 +40,7 @@ const getQuestionTypesData = () => promisifyData(testTypes);
 const getTestData = () => promisifyData({
     testId: 0,
     name: 'English Test',
-    timeLimit: 0,
+    timeLimit: 18e5,
     questions: [
         {
             type: testTypes.multi,

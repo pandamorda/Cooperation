@@ -1,6 +1,5 @@
 const QUESTION_ID_PREFIX = 'q';
 const ANCHOR_SOLVED_INNER_HTML = '✔';
-const REDIRECT_TIME = 3000;
 const PROGRESSBAR_PRECISION = 2;
 
 const ID = {

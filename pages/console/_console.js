@@ -1,29 +1,68 @@
 'use strict';
 
+const CIN_CHECK_INTERVAL = 200;
+
+const Command = function (description = '', command = () => { }) {
+   this.description = description;
+   this.run = command;
+}
+
+
 class Console {
 
    ///// FIELDS /////
 
+   #buffer = '';
    #staticTextLenght = 0;
    #config = {};
    #userData = {};
    #htmlElem;
    #userCommands = {
-      card: () => {
-         const cardEntries = Object.entries(this.#userData.card).map((entry) => `${entry[0]}: ${entry[1]}`);
+      card: new Command('Перегляд особистої картки користувача', (userCard = this.#userData.card) => {
+         const cardEntries = Object.entries(userCard).map((entry) => `${entry[0]}: ${entry[1]}`);
 
-         const entryMaxLenght = cardEntries.reduce(
-            (maxLenght, entry) => Math.max(entry.length, maxLenght),
-            0
-         );
-
-         const card = cardEntries.reduce((card, entry) => card.concat(`├╡ ${entry}${' '.repeat(entryMaxLenght - entry.length)} ╞╢\n`), '');
+         const entryMaxLenght = cardEntries.reduce((maxLenght, entry) => Math.max(entry.length, maxLenght), 0);
          const borderSymbols = '='.repeat(entryMaxLenght + 2);
 
-         this.#cout(`\nYour card:\n┌╒${borderSymbols}╗┐\n${card}╙╙${borderSymbols}╜┘\n`);
-      },
-      clear: () => { this.#htmlElem.value = ''; }
-   }
+         this.#cout(`\nYour card:\n┌╒${borderSymbols}╗┐`);
+         cardEntries.forEach(entry => this.#cout(`├╡ ${entry}${' '.repeat(entryMaxLenght - entry.length)} ╞╢`));
+         this.#cout(`╙╙${borderSymbols}╜┘`);
+      }),
+      clear: new Command('Очищення екрану терміналу', async () => this.#htmlElem.value = ''),
+      commands: new Command('Інормація про команди користувача', () => {
+         this.#cout('\nДоступні команди:');
+         Object.entries(this.#userCommands).forEach((command) => this.#cout(` - ${command[0]} - ${command[1].description}`));
+      }),
+      help: new Command('Загальна інформація', () => {
+         this.#cout(
+            // TODO
+            '\n - Введіть \'commands\', щоб переглянути доступні команди'
+         );
+      }),
+      tests: new Command('Інормація про тестування', async () => {
+         const requiredTests = this.#userData.requiredTests;
+         this.#cout('\nОбов\'язкові тести:');
+         requiredTests.forEach((test, index) => this.#cout(`\t${index}. ${test}`));
+
+         const testIndex = await this.#cin(
+            (value) => 0 <= +value && +value < requiredTests.length,
+            '\nВведіть номер тесту для його старту',
+            'Incorrect test number'
+         );
+
+         const pagesUrls = JSON.parse(await getPagesUrls());
+
+         this.#cout(`Розпочато '${requiredTests.at(testIndex)}'. Перенаправлення...`)
+         await redirectPage(
+            pagesUrls.tests, '_blank', REDIRECT_TIME,
+            (counter) => this.#cout(`\t${counter}`)
+         );
+         this.#cout('Очікування завершення тесту...');
+
+         // TODO: (backend) get results
+         this.#cout('RESULTS');
+      })
+   };
 
    ///// CONSTRUCTOR /////
 
@@ -34,62 +73,61 @@ class Console {
       document.getElementById(this.#config.userNameElemId).innerHTML = this.#userData.card.nickname;
       this.#htmlElem = document.getElementById(this.#config.consoleElemId);
 
-      this.#htmlElem.onfocus = this.#handleFocus;
-      this.#htmlElem.onkeydown = this.#handleKeyDown;
+      this.#htmlElem.addEventListener('focus', (event) => this.#handleFocus(event));
+      this.#htmlElem.addEventListener('keydown', (event) => this.#handleKeyDown(event));
       this.#htmlElem.disabled = true;
 
       this.#outStartLog();
-      this.#useDefaultHandleCommandSubmit();
+      this.#runCommandHandler();
    }
 
    /// STREAM ///
 
-   #cout = (value = '',) => {
-      this.#htmlElem.value = this.#htmlElem.value.concat(`\n${value}`);
-      this.#staticTextLenght = this.#htmlElem.value.length;
+   #cout(...values) {
+      values.forEach(val => {
+         this.#htmlElem.value = this.#htmlElem.value.concat(`\n${val.toString()}`);
+         this.#staticTextLenght = this.#htmlElem.value.length;
+      });
    }
 
-   #cerr = (errorMsg = '',) => { this.#cout(`\n\tERROR: ${errorMsg}`); }
+   #cerr(errorMsg = '') {
+      this.#cout(`\n\tERROR: ${errorMsg}`);
+   }
 
-   #cin = () => {
-      this.#cout(`\n${this.#userData.card.nickname}@Machine > `)
-      this.#htmlElem.disabled = false;
-      this.#htmlElem.focus();
+   async #cin(validate = (_cinValue) => true, prompt = '', errorMsg = '') {
+      let isCinValueValid = false;
+      let cinValue = '';
 
-      return () => new Promise((fulfill) => {
-         const value = this.#htmlElem.value.slice(this.#staticTextLenght).trim();
-         this.#htmlElem.disabled = true;
+      prompt && this.#cout(prompt);
 
-         this.#staticTextLenght = this.#htmlElem.value.length;
-         fulfill(value);
-      });
+      while (!isCinValueValid) {
+         this.#cout(`\n${this.#userData.card.nickname}@Machine > `)
+         this.#htmlElem.disabled = false;
+         this.#htmlElem.focus();
+
+         cinValue = await new Promise((fulfill) => {
+            const cinCheckInterval = setInterval(() => {
+               if (this.#buffer) {
+                  clearInterval(cinCheckInterval);
+                  const bufferValue = this.#buffer;
+                  this.#buffer = '';
+                  fulfill(bufferValue);
+               }
+            }, CIN_CHECK_INTERVAL);
+         });
+
+         isCinValueValid = validate(cinValue)
+         !isCinValueValid && this.#cerr(errorMsg)
+      }
+
+      return cinValue;
    }
 
    /// EVENTHANDLERS ///
 
-   #handleFocus = (event) => { this.#setCursorPosition(event.target.value.length); }
+   #handleFocus(event) { this.#setCursorPosition(event.target.value.length); }
 
-   #handleCommandSubmit = async () => { };
-
-   #setHandleCommandSubmit = (handleCommandSubmit = async () => { }) => {
-      this.#handleCommandSubmit = handleCommandSubmit;
-   }
-
-   #useDefaultHandleCommandSubmit = () => {
-      const promiseValue = this.#cin();
-      this.#setHandleCommandSubmit(async () => {
-         const userCommand = await promiseValue();
-
-         if (!this.#userCommands.hasOwnProperty(userCommand)) {
-            this.#cerr("INCORRECT_COMMAND");
-            return;
-         }
-
-         this.#userCommands[userCommand]();
-      });
-   };
-
-   #handleKeyDown = async (event) => {
+   #handleKeyDown(event) {
       const eventTarget = event.currentTarget;
       const eventKeyCode = event.keyCode;
 
@@ -107,51 +145,40 @@ class Console {
             break;
          }
          case 13: {
-            await this.#handleCommandSubmit();
-            this.#useDefaultHandleCommandSubmit();
-
             event.preventDefault();
+            this.#buffer = this.#htmlElem.value.slice(this.#staticTextLenght).trim();
+            this.#htmlElem.disabled = true;
+            this.#staticTextLenght = this.#htmlElem.value.length;
             break;
          }
-         default:
+         default: {
             isCursorOnStaticText && this.#setCursorPosition(eventTarget.value.length);
             break;
+         }
       }
    }
 
    /// MISC ///
 
-   #setCursorPosition = (position) => this.#htmlElem.selectionStart = position;
-
-   #outStartLog = () => {
-      this.#cout(`InitiativeGroup, site v${this.#config.version} (v${this.#config.versionPrecise}, ${new Date()}) [HTML-CSS & JS (spec.)] on linux`);
-      this.#cout(`Last login: ${this.#userData.lastLogin}`)
-      this.#userCommands.card(this.#userData.card);
-      // this.#userCommands.tests(this.#userData);
-      // Your test 1 results: // <-- Appears on complete
-      /** Test 1 results
-       * 
-       * [...]  
-       * Solved 15% of test 1
-       ** /
-      Уведіть номер тесту, щоб розпочати його: 1, 2 або 3
-      
-      
-      
-      You already solved the test 3!
-      <strong>!</strong>Уведіть номер тесту, щоб розпочати його: 1, 2 або 3
-      Help -- print \`help\` and press <Enter>.
-      this.#config.user.nickname@Machine ~ % help
-      Ти повинен пройти 3 тести.
-      Тести:
-       1 [tec] - Технічний тест
-       2 [eng] - Тест з англійськой мови
-       3 [ss] - Soft Skills (психологічний тест)
-      Для початку проходження тесту введи його номер або кодове слово.
-         Наприклад: розпочаток тесту з англійської мови виконується через “2”
-      
-      <...>             Ми з вами зв’яжемося! На головну: /main; профіль -- /p`
-            );
-      */
+   #outStartLog() {
+      this.#userCommands.clear.run();
+      this.#cout(
+         `InitiativeGroup, site v${this.#config.version} (v${this.#config.versionPrecise}, ${new Date()}) [HTML-CSS & JS (spec.)] on linux`,
+         `Останній онлайн: ${this.#userData.lastLogin}`
+      );
+      this.#userCommands.card.run();
+      this.#cout('\n** Введіть \'help\', щоб переглянути загальну інформацію **');
    }
+
+   async #runCommandHandler() {
+      while (true) {
+         await new Promise(async (fulfill) => {
+            const userCommand = await this.#cin((value) => this.#userCommands.hasOwnProperty(value), null, "Incorrect user command");
+            await this.#userCommands[userCommand].run();
+            fulfill();
+         });
+      }
+   };
+
+   #setCursorPosition(position) { this.#htmlElem.selectionStart = position };
 }
