@@ -2,7 +2,7 @@
 
 .stages {
     width: min(12vw, 230px);
-    padding: 3% 0;
+    padding: min(0.26vw, 5px) 0;
     font-size: 0.75em;
 }
 
@@ -25,7 +25,7 @@ aside {
     margin-right: min(2.08vw, 40px);
 }
 
-.stage, .sub-stage {
+.stage {
     margin: min(0.52vw, 10px) min(0.52vw, 10px) min(0.52vw, 10px) min(1.04vw, 20px);
 }
 

@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <!-- <script>
-        $(".stage a").click(function (event) {
-
-            alert("Нажатие");
-            //  var id  = $(this).attr("href");
-
-            //  var top = $(id).offset().top;
-
-            //  $('body, html').animate({scrollTop: top}, 1500);
-
-             event.preventDefault();
-        });
-    </script>    -->
     <meta charset="UTF-8" />
     <title>Initiative group - Проєкти</title>
     <link rel="stylesheet" href="./sample-project.css" />
@@ -62,45 +49,43 @@
         <div class="content">
             <aside>
                 <img src="/src/images/projects/projects-img.png" alt="project.png">
-                <section class="stages">
-                    <ul>
+                <ol class="stages section-like">
                         <li class="stage">
-                            <span><a href="#наш-сайт">Этап 1....</a></span> 
-                            <ul>
-                                <li class="sub-stage">Подэтап 1.1....</li>
-                                <li class="sub-stage">Подэтап 1.2....</li>
-                            </ul>
+                            <a href="#maket">Этап ...</a>
+                            <ol>
+                                <li class="sub-stage">Подэтап ...</li>
+                                <li class="sub-stage">Подэтап ...</li>
+                            </ol>
                         </li>
                         <li class="stage">
-                            <span><a href="#макет">Этап 2....</a></span> 
-                            <ul>
-                                <li class="sub-stage">Подэтап 2.1....</li>
-                                <li class="sub-stage">Подэтап 2.2....</li>
-                            </ul>
+                            <a href="#main-page-maket">Этап ...</a>
+                            <ol>
+                                <li class="sub-stage">Подэтап ...</li>
+                                <li class="sub-stage">Подэтап ...</li>
+                            </ol>
                         </li>
                         <li class="stage">
-                            <span>Этап 3....</span> 
-                            <ul>
-                                <li class="sub-stage">Подэтап 3.1....</li>
-                                <li class="sub-stage">Подэтап 3.2....</li>
-                            </ul>
+                            <a href="#project-page-maket">Этап ...</a> 
+                            <ol>
+                                <li class="sub-stage">Подэтап ...</li>
+                                <li class="sub-stage">Подэтап ...</li>
+                            </ol>
                         </li>
                         <li class="stage">
-                            <span>Этап 4....</span> 
-                            <ul>
-                                <li class="sub-stage">Подэтап 4.1....</li>
-                                <li class="sub-stage">Подэтап 4.2....</li>
-                            </ul>
+                            <a href="#">Этап ...</a> 
+                            <ol>
+                                <li class="sub-stage">Подэтап ...</li>
+                                <li class="sub-stage">Подэтап ...</li>
+                            </ol>
                         </li>
                         <li class="stage">GitHub</li>
-                  </ul> 
-                </section>
+                  </ol> 
             </aside>
             <section class="main-text">
-                <h1 id="наш-сайт">Наш сайт</h1>
-                    <h2 id="макет">Создание Макета</h2>
+                <h1>Наш сайт</h1>
+                    <h2 class="anchor" id="maket">Создание Макета</h2>
   
-                    <h3>Прототип главной страницы</h3>
+                    <h3 class="anchor" id="main-page-maket">Прототип главной страницы</h3>
                        
                     <p>
                         Lorem Ipsum is simply dummy text of the printing    
@@ -113,7 +98,7 @@
                         publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
                   
-                    <h3>Прототип страницы Проекты</h3>
+                    <h3 class="anchor" id="project-page-maket">Прототип страницы Проекты</h3>
                   
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 

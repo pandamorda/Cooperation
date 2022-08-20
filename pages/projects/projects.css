@@ -6,35 +6,35 @@
     flex-wrap: wrap;
 }
 
-main figure {
+.project-figure {
     display: flex;
     flex-direction: column;
     text-align: center;
     width: min(15.625vw, 300px);
 }
 
-section {
+.section-like {
     padding: var(--border-radius-medium);
     margin-bottom: min(2.08vw, 40px);
     transition: all 0.3s ease;
 }
 
-figure img{
+.project-figure img{
     border-radius: var(--border-radius-medium);
 }
 
-.white-box {
-    background-color: var(--grey-l1);
+.section-like:hover {
+    box-shadow:
+    min(0.052vw, 1px) min(0.052vw, 1px) #17161844,
+    min(0.1vw, 2px) min(0.1vw, 2px) #17161844,
+    min(0.16vw, 3px) min(0.16vw, 3px) #17161844,
+    min(0.21vw, 4px) min(0.21vw, 4px) #17161844,
+    min(0.26vw, 5px) min(0.26vw, 5px) #17161844,
+    min(0.31vw, 6px) min(0.31vw, 6px) #17161844,
+    min(0.36vw, 7px) min(0.36vw, 7px) #17161844;
+    transform: translate(min(-0.36vw, -7px), min(-0.36vw, -7px));
 }
 
-.content section:hover {
-    box-shadow:
-    1px 1px #17161844,
-    2px 2px #17161844,
-    3px 3px #17161844,
-    4px 4px #17161844,
-    5px 5px #17161844,
-    6px 6px #17161844,
-    7px 7px #17161844;
-    transform: translate(-7px, -7px);
+.section-like:nth-of-type(odd) {
+    background-color: var(--grey-l1);
 }
