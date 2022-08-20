@@ -3,8 +3,6 @@
 ///// Console Page /////
 
 const getConsoleConfig = () => promisifyData({
-    consoleElemId: "console",
-    userNameElemId: "user-name",
     version: "0.8.0",
     versionPrecise: "0.8.0:a1",
 });

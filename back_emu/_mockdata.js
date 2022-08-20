@@ -29,8 +29,3 @@ const redirectPage = async (
         secondsCounter--;
     }, ONE_SECOND);
 });
-
-const getPagesUrls = () => promisifyData({
-    console: '/pages/console/',
-    tests: '/pages/tests/',
-});

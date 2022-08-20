@@ -1,5 +1,9 @@
 'use strict';
 
+const ID = TESTS.elemIds;
+const CN = TESTS.elemCns;
+
+
 const createElem = (elem) => document.createElement(elem);
 const getElemById = (id) => document.getElementById(id);
 const getElemsByName = (id) => document.getElementsByName(id);
@@ -51,8 +55,8 @@ const updateNav = (questionId = '', solvedQuestionIdsArray = []) => {
         .pop();
 
     questionAnchorElem.textContent = solvedQuestionIdsArray.indexOf(questionId) !== -1
-        ? ANCHOR_SOLVED_INNER_HTML
-        : questionId.split(QUESTION_ID_PREFIX).pop();
+        ? TESTS.anchorSolvedText
+        : questionId.split(TESTS.questionIdPrefix).pop();
 }
 
 const updateForm = (
@@ -83,7 +87,7 @@ const generateInputs = (
 
         inputsFieldsetElem.append(consoleElem);
 
-        const consoleEditor = CodeMirror.fromTextArea(consoleElem, CONSOLE_EDITOR_CONFIG);
+        const consoleEditor = CodeMirror.fromTextArea(consoleElem, TESTS.codeEditor.config.console);
         consoleEditor.setSize('auto', 'auto');
 
         question.inputsInitialValues.forEach(inputInitialValue => {
@@ -94,7 +98,7 @@ const generateInputs = (
             inputsFieldsetElem.prepend(inputElem);
 
             const editor = CodeMirror.fromTextArea(inputElem, {
-                ...CODE_EDITOR_CONFIG,
+                ...TESTS.codeEditor.config.editor,
                 mode: question.mode
             })
             editor.setSize(null, CODE_EDITOR.height);
@@ -208,7 +212,7 @@ const generateQuestions = (testData = {}, questionTypes = {}, solvedQuestions = 
     const buttonSubmit = getElemById(ID.buttonSubmit);
 
     testData.questions.forEach((question, questionIndex) => {
-        const questionId = `${QUESTION_ID_PREFIX}${questionIndex}`;
+        const questionId = `${TESTS.questionIdPrefix}${questionIndex}`;
 
         const inputsFieldsetElem = createElem('fieldset');
         inputsFieldsetElem.classList.add(CN.qInputs);
@@ -272,7 +276,7 @@ const handleTimer = async (test = {}, timeLimit = 0) => {
 const submitForm = async (testData = {}, questionTypes = {}) => {
     const testResultsData = { ...testData };
     testResultsData.questions = testResultsData.questions.map((question, index) => {
-        const inputsArray = Array.from(getElemsByName(`${QUESTION_ID_PREFIX}${index}`));
+        const inputsArray = Array.from(getElemsByName(`${TESTS.questionIdPrefix}${index}`));
 
         const checkedInputsArray = inputsArray.map((input, index) => {
             switch (question.type) {
