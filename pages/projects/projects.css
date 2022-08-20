@@ -15,7 +15,8 @@ main figure {
 
 section {
     padding: var(--border-radius-medium);
-    margin-bottom: 5%;
+    margin-bottom: min(2.08vw, 40px);
+    transition: all 0.3s ease;
 }
 
 figure img{
@@ -24,4 +25,16 @@ figure img{
 
 .white-box {
     background-color: var(--grey-l1);
+}
+
+.content section:hover {
+    box-shadow:
+    1px 1px #17161844,
+    2px 2px #17161844,
+    3px 3px #17161844,
+    4px 4px #17161844,
+    5px 5px #17161844,
+    6px 6px #17161844,
+    7px 7px #17161844;
+    transform: translate(-7px, -7px);
 }

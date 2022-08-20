@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    <!-- <script>
+        $(".stage a").click(function (event) {
+
+            alert("Нажатие");
+            //  var id  = $(this).attr("href");
+
+            //  var top = $(id).offset().top;
+
+            //  $('body, html').animate({scrollTop: top}, 1500);
+
+             event.preventDefault();
+        });
+    </script>    -->
     <meta charset="UTF-8" />
     <title>Initiative group - Проєкти</title>
-    <link rel="stylesheet" href="./project.css" />
+    <link rel="stylesheet" href="./sample-project.css" />
 </head>
 <body>
 <div class="wrapper">
@@ -52,31 +65,31 @@
                 <section class="stages">
                     <ul>
                         <li class="stage">
-                            <span>Этап 1....</span> 
+                            <span><a href="#наш-сайт">Этап 1....</a></span> 
                             <ul>
-                                <li>Подэтап 1.1....</li>
-                                <li>Подэтап 1.2....</li>
+                                <li class="sub-stage">Подэтап 1.1....</li>
+                                <li class="sub-stage">Подэтап 1.2....</li>
                             </ul>
                         </li>
                         <li class="stage">
-                            <span>Этап 2....</span> 
+                            <span><a href="#макет">Этап 2....</a></span> 
                             <ul>
-                                <li>Подэтап 2.1....</li>
-                                <li>Подэтап 2.2....</li>
+                                <li class="sub-stage">Подэтап 2.1....</li>
+                                <li class="sub-stage">Подэтап 2.2....</li>
                             </ul>
                         </li>
                         <li class="stage">
                             <span>Этап 3....</span> 
                             <ul>
-                                <li>Подэтап 3.1....</li>
-                                <li>Подэтап 3.2....</li>
+                                <li class="sub-stage">Подэтап 3.1....</li>
+                                <li class="sub-stage">Подэтап 3.2....</li>
                             </ul>
                         </li>
                         <li class="stage">
                             <span>Этап 4....</span> 
                             <ul>
-                                <li>Подэтап 4.1....</li>
-                                <li>Подэтап 4.2....</li>
+                                <li class="sub-stage">Подэтап 4.1....</li>
+                                <li class="sub-stage">Подэтап 4.2....</li>
                             </ul>
                         </li>
                         <li class="stage">GitHub</li>
@@ -84,8 +97,8 @@
                 </section>
             </aside>
             <section class="main-text">
-                <h1>Наш сайт</h1>
-                    <h2>Создание Макета</h2>
+                <h1 id="наш-сайт">Наш сайт</h1>
+                    <h2 id="макет">Создание Макета</h2>
   
                     <h3>Прототип главной страницы</h3>
                        

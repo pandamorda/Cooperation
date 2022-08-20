@@ -14,7 +14,7 @@
     border-radius: var(--border-radius-medium);
     width: min(15.625vw, 250px);
     height: min(10.41vw, 200px);
-    margin-bottom: 10%;
+    margin-bottom: min(2.08vw, 40px);
 }
 
 aside {
@@ -22,19 +22,13 @@ aside {
     flex-direction: column;
     justify-content: left;
     align-items: flex-start;
-    margin-right: 5%;
+    margin-right: min(2.08vw, 40px);
 }
 
-.stage {
-    margin-bottom: 5%;
-    margin-top: 5%;
+.stage, .sub-stage {
+    margin: min(0.52vw, 10px) min(0.52vw, 10px) min(0.52vw, 10px) min(1.04vw, 20px);
 }
 
-section ul li {
-    margin-left: 10%;
-    margin-right: 5%;
-}
-
-h2, h3 , p{
-    margin-bottom: 5%;
+h2, h3 , p {
+    margin-bottom: min(2.08vw, 40px);
 }
