@@ -13,7 +13,7 @@ const promisifyData = (data = {}) => new Promise((fulfill) => {
 });
 
 const redirectPage = async (
-    url = '', openMode = '_blanket', redirectTime = 0,
+    url = '', openMode = '_blank', redirectTime = 0,
     aux = (_secondsCounter) => { }
 ) => new Promise(fulfill => {
     let secondsCounter = redirectTime * 1e-3;

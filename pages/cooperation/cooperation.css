@@ -4,18 +4,16 @@
 .upload {
   padding: 0;
   border-radius: var(--border-radius-medium) var(--border-radius-medium) var(--border-radius-medium) var(--border-radius-high);
+  overflow: hidden;
 }
 
 .upload-title {
   display: flex;
-  align-items: center;
 
   --padding-vertical: min(1vw, 19.2px);
-  padding-top: var(--padding-vertical);
+  padding: var(--padding-vertical);
   padding-bottom: var(--padding-vertical);
 
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
   background-color: var(--grey-l2);
 }
 
@@ -23,25 +21,24 @@
   margin: 0;
 }
 
-.upload-main {
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
+#resume-form {
+  display: flex;
+  align-items: center;
 }
 
-#upload-resume {
+#resume-form>:nth-child(n) {
+  width: 50%;
+  text-align: center;
+}
+
+#resume-input {
   display: none;
 }
 
-#form-resume {
+#resume-form .alt-upload figure {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-}
-
-#form-resume .alt-upload figure {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   padding: min(1.56vw, 30px) 0;
   height: min(3.65vw, 70px);
@@ -54,6 +51,7 @@
   text-decoration: underline;
   color: var(--text-color-pink);
 }
+
 
 /*  Console */
 

@@ -9,6 +9,15 @@ const CONSOLE = {
     cinCheckInterval: 200
 }
 
+/// COOPERATION ///
+
+const COOPERATION = {
+    resumeForm: {
+        uploadStatus: "resume-upload-status",
+        fileInput: "resume-input",
+    }
+}
+
 /// TESTS PAGE ///
 
 const CODE_EDITOR = {
