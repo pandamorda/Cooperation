@@ -84,34 +84,26 @@
           <div class="upload-title">
             <h2>Завантажити резюме:</h2>
           </div>
-          <div class="upload-main">
-            <form id="form-resume" action="#" method="post" enctype="multipart/form-data">
-              <input id="upload-resume" type="file" accept=".doc,.docx" />
-
-              <label class="alt-upload clicable" for="upload-resume">
-                <figure>
-                  <img src="/src/images/cooperation/file_icon.png" alt="File icon blue." />
-                  <figcaption class="upload-text">
-                    Натисніть, щоб додати Ваш документ
-                  </figcaption>
-                </figure>
-              </label>
-              <span id="upload-status">
-                &#9989; Все добре / &#10071; Потрібно довантаження
-              </span>
-            </form>
-          </div>
+          <form id="resume-form" action="#" method="post" enctype="multipart/form-data">
+            <input id="resume-input" type="file" accept=".doc,.docx" />
+            <label class="alt-upload clicable" for="resume-input">
+              <figure>
+                <img src="/src/images/cooperation/file_icon.png" alt="File icon." />
+                <figcaption class="upload-text">Натисніть, щоб додати Ваш документ</figcaption>
+              </figure>
+            </label>
+            <span id="resume-upload-status"></span>
+          </form>
         </section>
 
         <section class="console">
           <textarea id="console"></textarea>
           <div id="console-status"></div>
+        </section>
       </div>
-      </section>
-  </div>
-  </main>
+    </main>
 
-  <footer></footer>
+    <footer></footer>
   </div>
 </body>
 
