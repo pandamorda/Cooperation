@@ -18,6 +18,7 @@ const getUserData = () => promisifyData({
         "Тест з англійської мови",
         "Soft Skills (психологічний тест)",
     ],
+    isResumeUploaded: false,
     lastLogin: new Date()
 });
 
