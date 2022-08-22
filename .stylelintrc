@@ -1,0 +1,17 @@
+{
+    "ignoreFiles": [
+        "node_modules"
+    ],
+    "extends": [
+        "stylelint-config-rational-order",
+        "stylelint-config-prettier"
+    ],
+    "rules": {
+        "plugin/rational-order": [
+            true,
+            {
+                "empty-line-between-groups": true
+            }
+        ]
+    }
+}
