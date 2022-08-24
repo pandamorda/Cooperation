@@ -4,9 +4,9 @@
 Product of Initiative Group.
 Slide "Cooperation".
 
-![favicon](favicon.ico)
+![favicon](/favicon.ico)
 
-![logo](src/images/logo.png)
+![logo](/logo.png)
 
 ## Table of contents
 

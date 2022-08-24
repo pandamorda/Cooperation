@@ -3,8 +3,9 @@
 .DS_store/
 .idea/
 
-# cache 
+# cache / stats
 .eslintcache
+stats.json
 
 # build
 dist/
