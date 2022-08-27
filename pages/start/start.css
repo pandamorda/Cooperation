@@ -1,134 +1,50 @@
 @import url("/styles/style.css");
 
-@keyframes appear_r{
-    from{transform: translate(6vw, 0vw);}
-    to{transform: translate(0vw, 0vw);}
-}
-@keyframes appear{
-    from{transform: translate(-6vw, 0vw);}
-    to{transform: translate(0vw, 0vw);}
+:root {
+    --card-translate-value: var(--content-padding);
+    --card-animation-time: 2.5s;
 }
 
-@keyframes btn-appear{
-    from{transform: translate(0, -15vw);}
-    to{transform: translate(0, 0vw);}
-}
-
-@keyframes btn-disappear{
-    from{transform: translate(0, 0vw);}
-    to{transform: translate(0, -15vw);}
-}
-
-
-@keyframes profile-appear{
-    from{transform: translate(3vw, 0);}
-    to{transform: translate(0, 0);}
-}
-@keyframes profile-disappear{
-    from{transform: translate(0, 0);}
-    to{transform: translate(3vw, 0);}
-}
-
-body{ 
-    overflow-x: hidden;
-}
-section{
-    padding: 1.5vw;
-}
-
-.content {
-    margin-top: -4.5vw;
-}
-
-.content-box {
-    border: .2vw solid var(--text-color-white);
-    align-items: flex-end;
+.card {
     display: flex;
-    flex-direction: row;
-    height: 15.75vw;
-    margin-top: 2.25vw;
+    justify-content: space-between;
+    height: min(15.62vw, 300px);
+    margin-bottom: min(2.08vw, 40px);
 }
 
-.content-img {
-    border-radius: 1.3vw;
-    box-shadow: 0vw var(--vw4px) 1.3vw var(--black);
-    width: min(17vw, 350px);
-    height: min(17vw, 350px);
+.card:last-of-type {
+    margin-bottom: 0;
 }
 
-.txt-box {
-    height: 90%;
-    color: var(--pink);
-    background-color: var(--grey-l0);
-    border-radius: 1.3vw;
-    box-shadow: 0vw var(--vw4px) 1.05vw var(--black);
-    margin: 0 1.5vw 0 1.5vw;
-    overflow-y: scroll;
-    padding: 1vw 1.5vw 1vw 1.65vw;
+.card:nth-child(odd) {
+    flex-direction: row-reverse;
 }
 
-
-.txt-box::-webkit-scrollbar {
-    width: 0;
-}
-
-.txt-box::-moz-scrollbar {
-    width: 0;
-}
-
-.active-l{
-    animation: appear 2.5s;
-}
-
-.active-r{
-    animation: appear_r 2.5s;
-}
-
-/*Buttons*/
-
-.buttons{
-
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: space-around;
-    top: 0;
-    right: 0;
-    width: min(12.5vw,240px);
-    height: min(5.73vw, 110px);
-}
-
-.inner{
-    text-align: center;
-    margin: 0.3vw 0 0 4vw;
-    display: block;
-    position: relative;
-    padding: min(0.52vw, 10px) var(--border-radius-medium);
+.card-img {
     border-radius: var(--border-radius-medium);
-    background-color: var(--cyan);
-    color: var(--text-color-white);
-    width: min(6vw,240px);
-    height: min(2.2vw, 110px);
-    backdrop-filter: brightness(210%) saturate(0);
+    height: 100%;
 }
 
-.arrow{
-    position: absolute;
-    left: 2.25vw;
+.card-text {
+    width: 72.58%;
 }
 
-.buttons-appear{
-    animation: btn-appear 1s;
-}
-.buttons-disappear{
-    animation: btn-disappear 1s;
-}
-
-.profile-appear{
-    animation: profile-appear 1s;
+@keyframes appear-card-l {
+    from {
+        transform: translate(var(--card-translate-value), 0vw);
+    }
 }
 
-.profile-disappear{
-    animation: profile-disappear 1s;
+@keyframes appear-card-r {
+    from {
+        transform: translate(calc(-1 * var(--card-translate-value)), 0vw);
+    }
+}
+
+.appear-card-r {
+    animation: appear-card-r var(--card-animation-time);
+}
+
+.appear-card-l {
+    animation: appear-card-l var(--card-animation-time);
 }
