@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="profile.css">
-        <script src="profile.js"></script>
         <title>Profile</title>
     </head>
     <body>
@@ -52,9 +51,11 @@
                     <img src="../../src/images/profile/PROF_1.jpg" class="photo-profile">
                     <div class="text-profile">
                     <p>Ім'я:</p>
-                    <div id="name"> Панда</div>
+                    <div class="namefield"> Ім'я</div>
                     <p>Прізвище:</p>
+                    <div class="password-field"> Пароль</div>
                     <p>Пошта:</p>
+                    <div class="mail-field"> Пошта</div>
                     </div>
                     <figure class="my-project">
                         <a href="#popup" class="upload-file"><img class="--upload--file" src="../../src/images/cooperation/file_icon.png"></a>
@@ -90,52 +91,62 @@
 
                 <section  id="ame"class="setting-profile">
                     <h2>Налаштування</h2>
-                    <div class="change-name">
-                        <p class="text-setting">Змінити ім'я</p>
-                    </div>
-                   <script>
-                       document.onclick = () => {
+<!-- name -->
 
-                       const p = document.querySelector('.change-name p');
-                       const textarea = document.createElement('textarea');
-                       textarea.value = p.innerText;
-                       p.replaceWith( textarea );
-                   }</script>
+                        <p class="name">Змінити ім'я</p>
+                    
+                        <form id="change" class="change-name hidden">
+                            <input class ="inputName" type="text" name="key" placeholder="Ім'я"></input>
+                            <input class="savename" type="button" name="print" value="Зберегти" />
+                        </form>
+                
 
-                    <form id="change" name="change">
-                        <input type="text" name="key" placeholder="ім'я"></input>
-                        <input type="button" name="print" value="Зберегти" />
+<!-- password -->
+
+                        <a class=" password">Змінити пароль</a>
+
+
+                    <form id="change" class="change-password hidden">
+                        <input type="text" class ="inputPassword" name="key" placeholder="Пароль"></input>
+                        <input type="button" class="savepassword"  name="print" value="Зберегти" />
+                    </form> 
+<!-- email -->
+                        <a class="mail">Змінити електронну почту</a>
+
+                    <form id="change" class="change-mail hidden">
+                        <input class ="inputMail" type="text" name="key" placeholder="Email"></input>
+                        <input type="button" class="savemail" name="print" value="Зберегти" />
                     </form>
-                    <script>
-                        var keyBox = document.search.key;
-
-                        function onchange(e) {
-                        var printBlock = document.getElementById("name");
-                        var val = e.target.value;
-                        printBlock.textContent = val;
-                    }
-                    function onblur(e) {
-
-                        var text = keyBox.value.trim();
-                        if (text==="")
-                            keyBox.style.borderColor = "red";
-                        else
-                            keyBox.style.borderColor = "green";
-                    }
-                    function onfocus(e){
-
-                        keyBox.style.borderColor = "blue";
-                    }
-                    keyBox.addEventListener("change", onchange);
-                    keyBox.addEventListener("blur", onblur);
-                    keyBox.addEventListener("focus", onfocus);</script>
-                    <a class="text-setting">Змінити пароль</a>
+<!-- -->
                     <a class="text-setting">Змінити мову сайту</a>
-                    <a class="text-setting">Змінити електронну почту</a>
+
                     <a class="text-setting">Редагувати резюме</a>
 
                 </section>
+                
+                <!-- <script>
+                    var keyBox = document.search.key;
 
+                    function onchange(e) {
+                    var printBlock = document.getElementById("name");
+                    var val = e.target.value;
+                    printBlock.textContent = val;
+                }
+                function onblur(e) {
+
+                    var text = keyBox.value.trim();
+                    if (text==="")
+                        keyBox.style.borderColor = "red";
+                    else
+                        keyBox.style.borderColor = "green";
+                }
+                function onfocus(e){
+
+                    keyBox.style.borderColor = "blue";
+                }
+                keyBox.addEventListener("change", onchange);
+                keyBox.addEventListener("blur", onblur);
+                keyBox.addEventListener("focus", onfocus);</script> -->
                 <section class="questionnaire">
                     <h2>Анкета</h2>
                     <a href="#popup-q" class="about-choice" ><img class="--about--choice" src="../../src/images/profile/img_1.png" class="unity"></a>
@@ -171,4 +182,5 @@
 
 
     </body>
+    <script src="profile.js"></script>
 </html>

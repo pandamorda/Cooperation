@@ -10,26 +10,28 @@
 }
 
 @keyframes btn-appear{
-    from{transform: translate(0, -10vw);}
+    from{transform: translate(0, -15vw);}
     to{transform: translate(0, 0vw);}
 }
 
 @keyframes btn-disappear{
     from{transform: translate(0, 0vw);}
-    to{transform: translate(0, -10vw);}
+    to{transform: translate(0, -15vw);}
 }
 
 
 @keyframes profile-appear{
-    from{transform: translate(15vw, 0);}
+    from{transform: translate(3vw, 0);}
     to{transform: translate(0, 0);}
 }
 @keyframes profile-disappear{
     from{transform: translate(0, 0);}
-    to{transform: translate(15vw, 0);}
+    to{transform: translate(3vw, 0);}
 }
 
-
+body{ 
+    overflow-x: hidden;
+}
 section{
     padding: 1.5vw;
 }
