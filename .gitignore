@@ -1,1 +1,14 @@
-build/
+# IDE
+.vscode/
+.DS_store/
+.idea/
+
+# cache / stats
+.eslintcache
+stats.json
+
+# build
+dist/
+
+# modules
+node_modules/

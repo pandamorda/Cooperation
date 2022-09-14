@@ -1,0 +1,9 @@
+{
+    "**/*.js": [
+        "yarn format",
+        "yarn lint:fix"
+    ],
+    "**/*.css": [
+        "yarn lint-css:fix"
+    ]
+}
