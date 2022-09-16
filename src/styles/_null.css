@@ -8,8 +8,8 @@ pre {
 
 ul,
 ol {
-  list-style-type: none;
   list-style-position: inside;
+  list-style-type: none;
 }
 
 ul,
@@ -17,8 +17,8 @@ ol,
 figure,
 input,
 p {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 iframe {
@@ -57,13 +57,15 @@ textarea {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+
   cursor: pointer;
 }
 
 button {
   padding: 0;
+
   border: none;
   cursor: pointer;
 }
@@ -75,16 +77,19 @@ figure {
   padding-inline: 0;
   margin-block: 0;
   margin-inline: 0;
+
   border: none;
 }
 
 input,
 textarea {
-  appearance: none;
-  border: none;
+  font-size: inherit;
 
   font-family: inherit;
-  font-size: inherit;
+
+  border: none;
+
+  appearance: none;
 }
 
 h1,
@@ -93,10 +98,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
-  text-align: center;
-  line-height: 0.75;
   margin: 0;
+
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: 0.75;
+  text-align: center;
   margin-block: 0;
 }
