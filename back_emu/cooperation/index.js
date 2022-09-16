@@ -1,28 +1,23 @@
-"use strict";
+import { promisifyData } from '../_mockdata';
+import logoIcon from '@logo_icon';
 
 ///// Console Page /////
 
-const getConsoleConfig = () => promisifyData({
-    version: "0.8.0",
-    versionPrecise: "0.8.0:a1",
-});
-
-const getUserData = () => promisifyData({
-    card: {
-        nickname: "M20A20X",
-        name: "Maksym Sh",
-        group: "325a"
-    },
-    requiredTests: [
-        "Технічний тест",
-        "Тест з англійської мови",
-        "Soft Skills (психологічний тест)",
-    ],
-    isResumeUploaded: false,
-    lastLogin: new Date()
-});
-
-
+export const getUserData = () =>
+    promisifyData({
+        card: {
+            nickname: 'M20A20X',
+            name: 'Maksym Sh',
+            group: '325a'
+        },
+        requiredTests: [
+            'Технічний тест',
+            'Тест з англійської мови',
+            'Soft Skills (психологічний тест)'
+        ],
+        isResumeUploaded: false,
+        lastLogin: new Date()
+    });
 
 ///// Tests Page /////
 
@@ -31,8 +26,8 @@ const questionTypes = {
     single: 'single',
     multiImg: 'multi-img',
     match: 'match',
-    code: 'code',
-}
+    code: 'code'
+};
 
 const sampleTest = {
     data: {
@@ -54,9 +49,9 @@ const sampleTest = {
                 type: questionTypes.multiImg,
                 text: 'Some question 3?',
                 answers: [
-                    { text: 'answer1', src: '/src/images/logo_icon.jpeg' },
-                    { text: 'answer2', src: '/src/images/logo_icon.jpeg' },
-                    { text: 'answer3', src: '/src/images/logo_icon.jpeg' }
+                    { text: 'answer1', src: logoIcon },
+                    { text: 'answer2', src: logoIcon },
+                    { text: 'answer3', src: logoIcon }
                 ]
             },
             {
@@ -65,33 +60,35 @@ const sampleTest = {
                 answers: [
                     { definition: 'def1', match: 'match1' },
                     { definition: 'def2', match: 'match2' },
-                    { definition: 'def3', match: 'match3' },
+                    { definition: 'def3', match: 'match3' }
                 ]
-            },
-            {
-                type: questionTypes.code,
-                text: 'Some question 5? (Press \'Ctrl + Enter\' to run)',
-                mode: 'javascript',
-                inputsInitialValues: [`const main = () => {const a=1; const b=2; return a+b;}\nconsole.log(main(), 3);\nconsole.log(main(), 'abc');`],
-            },
+            }
+            // {
+            //     type: questionTypes.code,
+            //     text: "Some question 5? (Press 'Ctrl + Enter' to run)",
+            //     mode: 'javascript',
+            //     inputsInitialValues: [
+            //         `const main = () => {const a=1; const b=2; return a+b;}\nconsole.log(main(), 3);\nconsole.log(main(), 'abc');`
+            //     ]
+            // }
         ]
     },
     answers: [
         [0, 1],
         [0],
         [1, 2],
-        [0, 1, 2],
-        [
-            {
-                group: 'mainFunc',
-                regex: /(.+)main(.+)\{(?<mainFunc>(.+))\}/,
-                tests: [{ args: [], result: 3 }]
-            }
-        ]
+        [0, 1, 2]
+        // [
+        //     {
+        //         group: 'mainFunc',
+        //         regex: /(.+)main(.+)\{(?<mainFunc>(.+))\}/,
+        //         tests: [{ args: [], result: 3 }]
+        //     }
+        // ]
     ]
-}
+};
 
-const checkTest = (testData = {}) => {
+export const checkTest = (testData = {}) => {
     const questions = testData.questions.map((question, questionIndex) => {
         const questionAnswers = sampleTest.answers.at(questionIndex);
         const inputs = question.inputs;
@@ -101,23 +98,25 @@ const checkTest = (testData = {}) => {
             case questionTypes.multi:
             case questionTypes.multiImg:
             case questionTypes.match: {
-                isInputsIdentic = inputs.every(input => input.value === inputs[0].value);
+                isInputsIdentic = inputs.every(
+                    (input) => input.value === inputs[0].value
+                );
             }
         }
 
         let correctness = 0;
         if (!isInputsIdentic) {
-
             inputs.forEach((input) => {
                 switch (question.type) {
                     case questionTypes.multi:
                     case questionTypes.multiImg:
                     case questionTypes.single: {
                         if (input.value) {
-                            cl(input.index)
-                            correctness += questionAnswers.indexOf(input.index) !== -1
-                                ? 1.0 / questionAnswers.length
-                                : correctness && question.type !== questionTypes.single
+                            correctness +=
+                                questionAnswers.indexOf(input.index) !== -1
+                                    ? 1.0 / questionAnswers.length
+                                    : correctness &&
+                                      question.type !== questionTypes.single
                                     ? -1.0 / inputs.length
                                     : 0;
                         }
@@ -125,16 +124,25 @@ const checkTest = (testData = {}) => {
                     }
                     case questionTypes.match: {
                         correctness +=
-                            Number(questionAnswers.at(input.index) === parseInt(input.value)) / questionAnswers.length;
+                            Number(
+                                questionAnswers.at(input.index) ===
+                                    parseInt(input.value)
+                            ) / questionAnswers.length;
                         break;
                     }
                     case questionTypes.code: {
                         questionAnswers.forEach((answer) => {
                             const codeMatch = input.value.match(answer.regex);
-                            const checkCodeFunc = new Function(codeMatch.groups[answer.group]);
+                            const checkCodeFunc = new Function(
+                                codeMatch.groups[answer.group]
+                            );
 
                             answer.tests.forEach((test) => {
-                                correctness += Number(checkCodeFunc(...test.args) === test.result) / answer.tests.length;
+                                correctness +=
+                                    Number(
+                                        checkCodeFunc(...test.args) ===
+                                            test.result
+                                    ) / answer.tests.length;
                             });
                         });
                         break;
@@ -143,13 +151,12 @@ const checkTest = (testData = {}) => {
             });
         }
 
-        return { ...question, correctness, correctAnswers: questionAnswers }
+        return { ...question, correctness, correctAnswers: questionAnswers };
     });
 
     return { ...testData, questions: questions };
-}
+};
 
+export const getQuestionTypesData = () => promisifyData(questionTypes);
 
-const getQuestionTypesData = () => promisifyData(questionTypes);
-
-const getTestData = () => promisifyData(sampleTest.data);
+export const getTestData = () => promisifyData(sampleTest.data);

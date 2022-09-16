@@ -1,0 +1,40 @@
+@import url("@styles/style.css");
+
+.console {
+    padding: 0;
+}
+
+.console-head {
+    padding: min(0.5vw, 10px) 0;
+
+    color: var(--text-color-black);
+    font-size: 1.25em;
+    text-align: center;
+
+    background-color: var(--grey-l2);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.main {
+
+    width: 100%;
+    height: min(104.17vw, 2000px);
+    padding: var(--section-padding);
+    overflow-y: auto;
+
+    color: var(--text-color-green);
+
+    font-family: monospace;
+
+    background-color: inherit;
+    border-bottom-right-radius: inherit;
+
+    border-bottom-left-radius: inherit;
+
+    resize: none;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background-color: var(--grey-l1);
+}
