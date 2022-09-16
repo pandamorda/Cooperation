@@ -1,15 +1,16 @@
 /* Fieldset */
 .form-question {
+  width: 100%;
   margin-bottom: var(--section-bottom-margin);
   padding: min(0.73vw, 14px) 0;
   padding-left: min(1.04vw, 20px);
-  width: 100%;
+
+  color: var(--text-color-black);
+
+  background-color: var(--grey-l2);
 
   border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-medium);
-  background-color: var(--grey-l2);
-
-  color: var(--text-color-black);
 }
 
 .form-fieldset:nth-last-of-type(odd) .form-question,
@@ -26,6 +27,7 @@
   align-items: center;
 
   margin-bottom: var(--input-margin-bottom);
+
   text-indent: 0;
 }
 
@@ -35,35 +37,38 @@
 
 /* Inputs */
 input {
-  flex-shrink: 0;
   position: relative;
-  display: inline-flex;
 
-  margin-right: var(--input-margin-right);
+  display: inline-flex;
+  flex-shrink: 0;
   height: var(--input-height);
 
-  border-radius: var(--border-radius-medium);
-  border: var(--border-small);
-  box-shadow: var(--box-shadow-medium);
+  margin-right: var(--input-margin-right);
+
   background-color: var(--grey-l2);
+  border: var(--border-small);
+
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-medium);
 
   cursor: pointer;
 }
 
 input::before {
-  content: "";
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   width: 100%;
   height: 100%;
+
+  content: "";
 }
 
 input[type="text"] {
-  padding: 0 min(1.04vw, 20px);
   width: var(--input-text-width);
+  padding: 0 min(1.04vw, 20px);
 }
 
 input[type="checkbox"],
@@ -80,8 +85,8 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked:before {
-  border-radius: inherit;
   background-color: var(--black);
+  border-radius: inherit;
 
   transform: scale(0.33);
 }
@@ -94,8 +99,8 @@ label {
 /* Inputs with img */
 .input-figures {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .input-figures figure {
@@ -112,6 +117,7 @@ label {
   position: absolute;
   top: 0;
   left: 0;
+
   margin: 0;
 }
 
@@ -123,14 +129,15 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: var(--border-radius-medium);
-  margin-bottom: var(--input-margin-bottom);
   width: var(--input-img-container-size);
   height: var(--input-img-container-size);
+  margin-bottom: var(--input-margin-bottom);
+
+  padding: var(--border-radius-medium);
+
+  background-color: var(--grey-l1);
 
   border-radius: var(--border-radius-medium);
-  background-color: var(--grey-l1);
 }
 
 .input-img-container img {
@@ -146,12 +153,13 @@ label {
 
 .matches input {
   width: var(--input-small-size);
+
   text-align: center;
 }
 
 .match-text {
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   padding: min(0.52vw, 10px) min(1.04vw, 20px);
 
   background-color: var(--grey-l1);
@@ -165,12 +173,14 @@ button[type="submit"] {
   height: min(4.69vw, 90px);
   margin: 0 auto;
 
-  border-radius: var(--border-radius-medium);
-  box-shadow: var(--box-shadow-medium);
-  background-color: var(--grey-l1);
+  color: inherit;
 
   font-size: var(--content-font-size);
-  color: inherit;
+
+  background-color: var(--grey-l1);
+
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-medium);
 }
 
 /* Inputs disabled */
@@ -186,12 +196,12 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-  border-radius: var(--border-radius-medium);
   background-color: var(--grey-l2);
+  border-radius: var(--border-radius-medium);
 }
 
 progress::-webkit-progress-value {
-  border-radius: var(--border-radius-medium);
   background-color: var(--pink);
+  border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-medium);
 }
