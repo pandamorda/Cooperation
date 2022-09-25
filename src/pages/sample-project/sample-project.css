@@ -1,8 +1,9 @@
-@import url("/styles/style.css");
+@import url("@styles/style.css");
 
 .stages {
     width: min(12vw, 230px);
     padding: min(0.26vw, 5px) 0;
+
     font-size: 0.75em;
 }
 
@@ -11,17 +12,18 @@
 }
 
 .content img {
-    border-radius: var(--border-radius-medium);
     width: min(15.625vw, 250px);
     height: min(10.41vw, 200px);
     margin-bottom: min(2.08vw, 40px);
+
+    border-radius: var(--border-radius-medium);
 }
 
 aside {
     display: flex;
     flex-direction: column;
-    justify-content: left;
     align-items: flex-start;
+    justify-content: left;
     margin-right: min(2.08vw, 40px);
 }
 

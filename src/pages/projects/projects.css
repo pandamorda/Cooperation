@@ -1,21 +1,23 @@
-@import url("/styles/style.css");
+@import url("@styles/style.css");
 
 .projects{
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .project-figure {
     display: flex;
     flex-direction: column;
-    text-align: center;
     width: min(15.625vw, 300px);
+
+    text-align: center;
 }
 
 .section-like {
-    padding: var(--border-radius-medium);
     margin-bottom: min(2.08vw, 40px);
+    padding: var(--border-radius-medium);
+
     transition: all 0.3s ease;
 }
 
