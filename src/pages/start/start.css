@@ -1,4 +1,4 @@
-@import url("/styles/style.css");
+@import url("@styles/style.css");
 
 :root {
     --card-translate-value: var(--content-padding);
