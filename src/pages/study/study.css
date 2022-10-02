@@ -1,10 +1,11 @@
-@import url("/styles/style.css");
+@import url("@styles/style.css");
 
 .study {
-    background-color: inherit;
-    box-shadow: none;
     padding: 0;
+
+    background-color: inherit;
     border-radius: 0;
+    box-shadow: none;
 }
 
 .card {
@@ -17,8 +18,8 @@
     --img-size: min(11.98vw, 230px);
     width: var(--img-size);
     height: var(--img-size);
+    margin-right: var(--card-margin);
 
     border-radius: var(--border-radius-medium);
-    margin-right: var(--card-margin);
 
 }
